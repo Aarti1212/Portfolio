@@ -1,0 +1,72 @@
+[
+  {
+    "id": "cert-langgraph",
+    "name": "LangGraph Essentials - Python",
+    "issuer": "LangChain Academy",
+    "issueDate": "2024",
+    "expiryDate": "Lifetime",
+    "credentialId": "LC-LG-PYTHON",
+    "credentialUrl": "https://academy.langchain.com",
+    "skills": ["LangGraph", "State Graphs", "Memory Persistence", "Multi-Agent Systems", "Human-in-the-Loop"]
+  },
+  {
+    "id": "cert-langsmith",
+    "name": "LangSmith Essentials",
+    "issuer": "LangChain Academy",
+    "issueDate": "2024",
+    "expiryDate": "Lifetime",
+    "credentialId": "LC-LS-ESSENTIALS",
+    "credentialUrl": "https://academy.langchain.com",
+    "skills": ["LLM Observability", "Prompt Tracing", "Automated Evaluation", "Dataset Curation"]
+  },
+  {
+    "id": "cert-gcp-genai",
+    "name": "Google Cloud Certified Generative AI Leader",
+    "issuer": "Google Cloud",
+    "issueDate": "2024",
+    "expiryDate": "Lifetime",
+    "credentialId": "GCP-GENAI-LEADER",
+    "credentialUrl": "https://cloud.google.com/certification",
+    "skills": ["Vertex AI", "Gemini Models", "Enterprise GenAI Strategy", "Responsible AI"]
+  },
+  {
+    "id": "cert-hf-agents",
+    "name": "Fundamentals of Agents",
+    "issuer": "Hugging Face",
+    "issueDate": "2024",
+    "expiryDate": "Lifetime",
+    "credentialId": "HF-AGENTS-101",
+    "credentialUrl": "https://huggingface.co",
+    "skills": ["AI Agents", "Tool Calling", "Smolagents", "Autonomous Reasoning"]
+  },
+  {
+    "id": "cert-bigquery-ml",
+    "name": "Engineer Data for Predictive Modeling with BigQuery ML",
+    "issuer": "Google Cloud Skill Badge",
+    "issueDate": "2024",
+    "expiryDate": "Lifetime",
+    "credentialId": "GCP-BQML-BADGE",
+    "credentialUrl": "https://www.cloudskillsboost.google",
+    "skills": ["BigQuery ML", "ETL", "Dataflow", "Data Pipelines", "Predictive Modeling"]
+  },
+  {
+    "id": "cert-ml-spec",
+    "name": "Machine Learning Specialization",
+    "issuer": "DeepLearning.AI / Stanford Online",
+    "issueDate": "2023",
+    "expiryDate": "Lifetime",
+    "credentialId": "DLAI-ML-SPEC",
+    "credentialUrl": "https://coursera.org/verify/specialization",
+    "skills": ["Supervised Learning", "Neural Networks", "Hyperparameter Tuning", "Unsupervised Learning"]
+  },
+  {
+    "id": "cert-looker-lookml",
+    "name": "Build LookML Objects in Looker",
+    "issuer": "Google Cloud Skill Badge",
+    "issueDate": "2024",
+    "expiryDate": "Lifetime",
+    "credentialId": "GCP-LOOKML-BADGE",
+    "credentialUrl": "https://www.cloudskillsboost.google",
+    "skills": ["LookML", "Data Modeling", "Looker", "BI Analytics"]
+  }
+]

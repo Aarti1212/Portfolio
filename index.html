@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarti Barve | AI/ML & GenAI Engineer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Aarti Barve - AI/ML Engineer specializing in Generative AI, LangGraph multi-agent systems, hybrid RAG pipelines, and enterprise ML systems." />
+  <meta name="keywords" content="Aarti Barve, AI Engineer, Machine Learning, Generative AI, LLM, LangGraph, LangChain, MCP, RAG, Snowflake Cortex, Python, PyTorch, MLOps" />
+  <meta name="author" content="Aarti Barve" />
+  <link rel="canonical" href="https://aarti1212.github.io/Portfolio/" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aarti1212.github.io/Portfolio/" />
+  <meta property="og:title" content="Aarti Barve | AI/ML & GenAI Engineer" />
+  <meta property="og:description" content="AI/ML Engineer specializing in Generative AI, production RAG pipelines, LangGraph agentic workflows, and real-time ML systems." />
+  <meta property="og:image" content="assets/og-image.svg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aarti Barve | AI/ML & GenAI Engineer" />
+  <meta name="twitter:description" content="AI/ML Engineer specializing in Generative AI, production RAG pipelines, LangGraph agentic workflows, and real-time ML systems." />
+  <meta name="twitter:image" content="assets/og-image.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Preconnect & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <!-- Prism.js for Code Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+
+  <!-- Mermaid.js for Architecture Diagrams -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.mermaid) {
+        window.mermaid.initialize({
+          startOnLoad: false,
+          theme: 'dark',
+          themeVariables: {
+            primaryColor: '#1e1b4b',
+            primaryTextColor: '#f8fafc',
+            primaryBorderColor: '#38bdf8',
+            lineColor: '#818cf8',
+            secondaryColor: '#111827',
+            tertiaryColor: '#0f172a'
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aarti Barve",
+    "jobTitle": "AI / Machine Learning Engineer",
+    "url": "https://aarti1212.github.io/Portfolio/",
+    "sameAs": [
+      "https://github.com/Aarti1212",
+      "https://linkedin.com/in/aarti11"
+    ],
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "University of California, Irvine"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Dr. Babasaheb Ambedkar Marathwada University"
+      }
+    ],
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Generative AI",
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "LangGraph",
+      "LangChain",
+      "Model Context Protocol",
+      "Python",
+      "FastAPI",
+      "Kafka",
+      "Snowflake Cortex AI"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ======================================================================
+       Site Header & Navigation
+       ====================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Aarti Barve Portfolio Homepage">
+        <img src="assets/favicon.svg" alt="Aarti Barve Logo" class="brand-icon" width="32" height="32" />
+        <span class="brand-text">Aarti.ai</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#writing" class="nav-link">Writing</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Command Palette Trigger Button -->
+        <button id="cmdPaletteTriggerBtn" class="cmd-palette-btn" aria-label="Open Command Palette (Cmd + K)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Search</span>
+          <kbd class="cmd-key">⌘K</kbd>
+        </button>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileDrawer" class="mobile-drawer" aria-label="Mobile Navigation Menu">
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#experience" class="mobile-nav-link">Experience</a>
+    <a href="#projects" class="mobile-nav-link">Projects</a>
+    <a href="#skills" class="mobile-nav-link">Skills & Knowledge</a>
+    <a href="#writing" class="mobile-nav-link">Writing & Notes</a>
+    <a href="#education" class="mobile-nav-link">Education & Certs</a>
+    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <div style="margin-top: var(--space-4);">
+      <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">Download Resume PDF</a>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Main Content Landmark
+       ====================================================================== -->
+  <main id="mainContent" role="main">
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section" aria-label="Introduction">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="container hero-content">
+        <div class="hero-status-badge">
+          <span class="status-dot"></span>
+          <span id="statusBadgeText">Open to AI/ML & GenAI Engineer Roles</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="brand-text" id="heroName">Aarti Barve</span>
+        </h1>
+
+        <div class="hero-cycler">
+          Specializing in <span id="heroRoleCycler">Generative AI & LLM Systems</span><span class="cursor-blink"></span>
+        </div>
+
+        <p class="hero-tagline" id="heroTagline">
+          Building enterprise-grade Generative AI systems, autonomous multi-agent workflows (LangGraph & MCP), production RAG pipelines, and high-throughput ML microservices.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">
+            <span>Explore Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Resume PDF</span>
+          </a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+
+        <div class="hero-socials" id="heroSocials">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About Me Section -->
+    <section id="about" class="section" aria-label="About Me">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Background & Overview</span>
+          <h2 class="section-title">Engineering Intelligent Systems That Ship</h2>
+          <p class="section-subtitle">Bridging cutting-edge research in GenAI, agentic frameworks, and robust ML systems with real-world enterprise scalability.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-avatar-card reveal-on-scroll">
+            <div class="avatar-wrapper">
+              <div class="avatar-glow"></div>
+              <img src="assets/images/avatar-placeholder.svg" alt="Aarti Barve" class="avatar-img" id="aboutAvatar" />
+            </div>
+            <h3 class="about-name" id="aboutName">Aarti Barve</h3>
+            <div class="about-role" id="aboutRole">AI / Machine Learning Engineer</div>
+            <div class="about-loc" id="aboutLoc">Phoenix, AZ / Remote</div>
+          </div>
+
+          <div class="about-text-content">
+            <div class="bio-card reveal-on-scroll">
+              <p class="bio-text" id="aboutBio">
+                AI/ML Engineer with 5+ years of experience designing and deploying scalable machine learning pipelines, production Generative AI applications, and agentic workflows. Proven track record deploying hybrid search engines serving 60K+ daily queries at American Express, building autonomous credit risk decisioning platforms with LangGraph at PNC Bank, and orchestrating multi-agent systems using MCP and CrewAI.
+              </p>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="stats-grid reveal-on-scroll" id="statsContainer">
+              <!-- Populated by JS -->
+            </div>
+
+            <!-- Current Focus -->
+            <div class="focus-card reveal-on-scroll">
+              <div class="focus-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <strong>Current Technical Focus (2025–2026)</strong>
+              </div>
+              <ul class="focus-list" id="focusContainer">
+                <!-- Populated by JS -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Experience Section -->
+    <section id="experience" class="section" aria-label="Professional Experience">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Career History</span>
+          <h2 class="section-title">Production Experience</h2>
+          <p class="section-subtitle">A chronological journey through high-impact AI/ML, GenAI, and distributed data systems.</p>
+        </div>
+
+        <div class="timeline-container" id="experienceTimeline">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Projects Section (The Centerpiece) -->
+    <section id="projects" class="section" aria-label="Featured Projects">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Portfolio Showcase</span>
+          <h2 class="section-title">Featured Projects & Deep Dives</h2>
+          <p class="section-subtitle">Real-world systems spanning multi-agent workflows, hybrid RAG, real-time voice streaming, and Snowflake Cortex AI.</p>
+        </div>
+
+        <!-- Controls: Category Chips & Search -->
+        <div class="projects-controls reveal-on-scroll">
+          <div class="filter-chips" id="filterChips" role="group" aria-label="Filter projects by category">
+            <!-- Filter chips generated by JS -->
+          </div>
+          <div class="search-box-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="projectSearchInput" class="search-input" placeholder="Search projects, tech, tags..." aria-label="Search projects" />
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Skills & Knowledge Section -->
+    <section id="skills" class="section" aria-label="Skills and Technical Concepts">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Technical Depth</span>
+          <h2 class="section-title">Skills & Knowledge</h2>
+          <p class="section-subtitle">Organized by specialization with visual proficiency levels and direct project mappings.</p>
+        </div>
+
+        <div class="skills-category-grid" id="skillsCategoryGrid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Concepts I Can Explain -->
+        <div id="concepts" style="margin-top: var(--space-12);">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-tag">System Architectures</span>
+            <h3 class="section-title" style="font-size: 1.75rem;">Concepts I Can Explain</h3>
+            <p class="section-subtitle">Click to expand deep-dive explanations on critical AI and distributed system concepts.</p>
+          </div>
+          <div class="concepts-grid" id="conceptsGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Writing & Learning Section -->
+    <section id="writing" class="section" aria-label="Articles and Notes">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Knowledge Sharing</span>
+          <h2 class="section-title">Writing & Engineering Notes</h2>
+          <p class="section-subtitle">Deep dives on GenAI architectures, low-latency streaming, and daily technical learnings.</p>
+        </div>
+
+        <div class="writing-layout">
+          <div>
+            <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem;">Technical Deep Dives</h3>
+            <div class="articles-list" id="articlesList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div>
+            <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem;">TIL & Quick Engineering Notes</h3>
+            <div class="til-list" id="tilList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Education & Certifications Section -->
+    <section id="education" class="section" aria-label="Education and Credentials">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Credentials & Background</span>
+          <h2 class="section-title">Education & Certifications</h2>
+          <p class="section-subtitle">Academic foundations and industry-recognized certifications.</p>
+        </div>
+
+        <div class="edu-cert-grid">
+          <div>
+            <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem;">🎓 Academic Education</h3>
+            <div id="educationList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div>
+            <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem;">📜 Certifications & Badges</h3>
+            <div id="certificationsList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Contact Section -->
+    <section id="contact" class="section" aria-label="Contact Information">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-subtitle">Looking for an experienced AI/ML Engineer to build your next-generation GenAI or ML system? Let's talk.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card reveal-on-scroll">
+            <h3 style="font-size: 1.375rem; margin-bottom: var(--space-2);">Contact Channels</h3>
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">Feel free to reach out directly via email, phone, or LinkedIn.</p>
+            
+            <div id="contactDirectLinks" style="display: flex; flex-direction: column; gap: var(--space-3);">
+              <!-- Populated by JS -->
+            </div>
+
+            <div style="margin-top: var(--space-4);">
+              <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download Full Resume</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-card reveal-on-scroll">
+            <h3 style="font-size: 1.375rem; margin-bottom: var(--space-4);">Send a Direct Message</h3>
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName" class="form-label">Your Name</label>
+                <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Jane Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email Address</label>
+                <input type="email" id="contactEmail" name="email" class="form-input" placeholder="jane@company.com" required />
+              </div>
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">Message / Opportunity Details</label>
+                <textarea id="contactMessage" name="message" class="form-textarea" placeholder="Describe the role or project you'd like to collaborate on..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+              <div id="formStatusMsg" class="form-status-msg" role="status"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       Site Footer
+       ====================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-content">
+      <div>
+        <p style="color: var(--text-primary); font-weight: 600;">© 2026 Aarti Barve. All rights reserved.</p>
+        <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 4px;">Built with Semantic HTML5, Vanilla CSS & ES Modules • Deployed on GitHub Pages</p>
+      </div>
+
+      <div class="footer-socials" id="footerSocials">
+        <!-- Populated by JS -->
+      </div>
+
+      <a href="#hero" class="back-to-top-btn" aria-label="Back to top">
+        <span>Back to Top</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       Project Detail Modal Dialog
+       ====================================================================== -->
+  <div id="projectModalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Project Deep Dive Details">
+    <div class="modal-container">
+      <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="modalDynamicContent">
+        <!-- Populated dynamically by modal.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Command Palette (Cmd+K)
+       ====================================================================== -->
+  <div id="paletteOverlay" class="palette-overlay" role="dialog" aria-modal="true" aria-label="Command Palette">
+    <div class="palette-box">
+      <div class="palette-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="paletteInput" class="palette-search-input" placeholder="Type a command or search sections..." autocomplete="off" />
+      </div>
+      <ul id="paletteResults" class="palette-results-list">
+        <!-- Populated by palette.js -->
+      </ul>
+      <div class="palette-footer">
+        <span>Navigation: <kbd class="cmd-key">↑</kbd> <kbd class="cmd-key">↓</kbd> to select, <kbd class="cmd-key">↵</kbd> to open</span>
+        <span><kbd class="cmd-key">ESC</kbd> to close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       AI Assistant Teaser Widget ("Ask About Me")
+       ====================================================================== -->
+  <button id="assistantTriggerBtn" class="assistant-trigger-btn" aria-label="Open AI Assistant regarding Aarti Barve">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    <span>Ask About Me (AI)</span>
+  </button>
+
+  <div id="assistantDrawer" class="assistant-drawer" role="dialog" aria-label="AI Portfolio Assistant">
+    <div class="assistant-header">
+      <div class="assistant-title-group">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+        <strong style="font-size: 0.9375rem;">Aarti's AI Assistant</strong>
+      </div>
+      <button id="assistantCloseBtn" class="modal-close-btn" style="position: static; width: 28px; height: 28px;" aria-label="Close Assistant">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div id="assistantMessages" class="assistant-messages">
+      <div class="chat-bubble bot">
+        Hi! I'm an assistant trained on Aarti Barve's experience, RAG pipelines, LangGraph agents, and technical projects. Ask me anything!
+      </div>
+    </div>
+
+    <div class="chat-suggestions" id="assistantSuggestions">
+      <button class="suggestion-chip">Multi-Agent & LangGraph Experience?</button>
+      <button class="suggestion-chip">What did she build at AMEX & PNC?</button>
+      <button class="suggestion-chip">Tell me about her RAG & Voice AI projects</button>
+      <button class="suggestion-chip">What is her full tech stack?</button>
+    </div>
+
+    <form id="assistantForm" class="assistant-input-form">
+      <input type="text" id="assistantInput" class="assistant-input" placeholder="Ask a question..." autocomplete="off" />
+      <button type="submit" class="btn btn-primary btn-sm" aria-label="Send message">Send</button>
+    </form>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- ======================================================================
+       No-Script Fallback for Crawlers & Disabled JS
+       ====================================================================== -->
+  <noscript>
+    <div style="background: #111827; color: #f8fafc; padding: 30px; text-align: center; border-bottom: 2px solid #38bdf8;">
+      <h2>Aarti Barve - AI / Machine Learning Engineer</h2>
+      <p>Building production Generative AI systems, LangGraph agent workflows, and hybrid RAG pipelines.</p>
+      <p>Email: aartibarve11@gmail.com | Phone: 949-337-3685 | GitHub: github.com/Aarti1212 | LinkedIn: linkedin.com/in/aarti11</p>
+      <p>Experience: PNC Bank, CDreams Foundation, American Express, ZigZag Venture Capital, Infosys Limited.</p>
+      <p>Education: Master of Science in Business Analytics, University of California Irvine (UCI).</p>
+    </div>
+  </noscript>
+
+  <!-- ES Module Application Entrypoint -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

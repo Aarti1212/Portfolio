@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" fill="none">
+  <defs>
+    <linearGradient id="fineBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180d2b" />
+      <stop offset="100%" stop-color="#090414" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" rx="16" fill="url(#fineBg)" />
+  <rect x="2" y="2" width="596" height="336" rx="14" stroke="#2e1065" stroke-width="1.5" />
+
+  <rect x="30" y="30" width="165" height="28" rx="14" fill="#0f172a" stroke="#c084fc" stroke-width="1" />
+  <text x="112" y="49" font-family="monospace" font-size="11" fill="#c084fc" text-anchor="middle">● LoRA + DPO Alignment</text>
+
+  <!-- Large Base Model Matrix -->
+  <rect x="70" y="100" width="140" height="150" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="2" />
+  <text x="140" y="165" font-family="sans-serif" font-size="13" font-weight="bold" fill="#e2e8f0" text-anchor="middle">Frozen Base W₀</text>
+  <text x="140" y="190" font-family="monospace" font-size="11" fill="#818cf8" text-anchor="middle">Llama-3-8B (4-bit)</text>
+
+  <!-- Plus Sign -->
+  <text x="245" y="180" font-family="sans-serif" font-size="28" font-weight="bold" fill="#f8fafc" text-anchor="middle">+</text>
+
+  <!-- LoRA Rank Matrices B and A -->
+  <g transform="translate(280, 100)">
+    <!-- Matrix B -->
+    <rect x="0" y="0" width="40" height="150" rx="6" fill="#4c1d95" stroke="#a855f7" stroke-width="1.5" />
+    <text x="20" y="80" font-family="sans-serif" font-size="11" font-weight="bold" fill="#f3e8ff" text-anchor="middle">B</text>
+    <text x="20" y="96" font-family="monospace" font-size="9" fill="#d8b4fe" text-anchor="middle">d×r</text>
+
+    <!-- Matrix A -->
+    <rect x="55" y="55" width="150" height="40" rx="6" fill="#4c1d95" stroke="#a855f7" stroke-width="1.5" />
+    <text x="130" y="80" font-family="sans-serif" font-size="11" font-weight="bold" fill="#f3e8ff" text-anchor="middle">A</text>
+    <text x="130" y="96" font-family="monospace" font-size="9" fill="#d8b4fe" text-anchor="middle">r×k</text>
+
+    <text x="100" y="180" font-family="monospace" font-size="11" fill="#34d399" text-anchor="middle">ΔW = B · A (r=64)</text>
+  </g>
+
+  <!-- Serving Throughput Banner -->
+  <rect x="70" y="275" width="460" height="36" rx="8" fill="#030712" stroke="#334155" />
+  <text x="300" y="298" font-family="monospace" font-size="12" fill="#38bdf8" text-anchor="middle">⚡ vLLM AWQ: 1,420 tokens/sec • 97.4% F1 on SEC 10-K</text>
+</svg>

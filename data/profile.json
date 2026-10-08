@@ -1,0 +1,53 @@
+{
+  "name": "Aarti Barve",
+  "title": "AI / Machine Learning Engineer | GenAI & Agentic Systems",
+  "tagline": "Building enterprise-grade Generative AI systems, autonomous multi-agent workflows, production RAG pipelines, and high-throughput ML microservices.",
+  "location": "Phoenix, AZ / Open to Remote",
+  "phone": "949-337-3685",
+  "email": "aartibarve11@gmail.com",
+  "availableForHire": true,
+  "availabilityStatus": "Open to AI/ML Engineer & GenAI Specialist roles",
+  "shortBio": "AI/ML Engineer with 5+ years of experience engineering scalable machine learning pipelines, production Generative AI applications, and agentic workflows. Proven track record deploying hybrid search engines serving 60K+ daily queries at American Express, building autonomous credit risk and decisioning platforms with LangGraph at PNC Bank, and orchestrating multi-agent systems using MCP and CrewAI. Master of Science in Business Analytics from UC Irvine.",
+  "currentFocus": {
+    "building": "Multi-agent systems using Model Context Protocol (MCP) and LangGraph with state persistence & human-in-the-loop governance",
+    "exploring": "Real-time voice streaming with LiveKit & ElevenLabs, dynamic turn detection, and speculative LLM decoding",
+    "reading": "Recent research in Agent-as-a-Judge evaluation rubrics, test-time compute scaling, and enterprise RAG grounding benchmarks"
+  },
+  "stats": [
+    {
+      "value": "5+",
+      "label": "Years Experience",
+      "detail": "AI/ML, GenAI & Software Engineering"
+    },
+    {
+      "value": "60K+",
+      "label": "Daily Queries Served",
+      "detail": "In-app GenAI Search at AMEX (US, UK, AU, JP)"
+    },
+    {
+      "value": "0.34s",
+      "label": "Real-Time Voice Latency",
+      "detail": "Streaming LLM-to-TTS with LiveKit"
+    },
+    {
+      "value": "15%",
+      "label": "Search CTR Lift",
+      "detail": "Hybrid Semantic, Fuzzy & NER retrieval"
+    }
+  ],
+  "socials": {
+    "github": "https://github.com/Aarti1212",
+    "linkedin": "https://linkedin.com/in/aarti11",
+    "email": "mailto:aartibarve11@gmail.com",
+    "phone": "tel:949-337-3685",
+    "huggingface": "https://huggingface.co/Aarti1212"
+  },
+  "resumePath": "assets/resume.pdf",
+  "avatar": "assets/images/avatar-placeholder.svg",
+  "config": {
+    "showWritingSection": true,
+    "showAssistantTeaser": true,
+    "showConceptsSection": true,
+    "contactFormEndpoint": "https://formspree.io/f/your_form_id_here"
+  }
+}

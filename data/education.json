@@ -1,0 +1,32 @@
+[
+  {
+    "id": "edu-uci",
+    "degree": "Master of Science in Business Analytics (MSBA)",
+    "institution": "University of California, Irvine (UCI)",
+    "location": "Irvine, CA",
+    "year": "Aug 2024",
+    "summary": "Specialized in Advanced Machine Learning, Predictive Analytics, Big Data Technologies, Optimization, and Applied NLP. Capstone and coursework applying statistical machine learning to enterprise decision-making.",
+    "coursework": [
+      "Machine Learning & Deep Learning",
+      "Big Data Analytics & Cloud Infrastructure",
+      "Business Analytics & Optimization",
+      "Data Management & SQL Architectures",
+      "Advanced Statistical Modeling"
+    ]
+  },
+  {
+    "id": "edu-bamu",
+    "degree": "Bachelor of Engineering in Computer Science",
+    "institution": "Dr. Babasaheb Ambedkar Marathwada University",
+    "location": "India",
+    "year": "Jun 2020",
+    "summary": "Comprehensive foundation in Computer Science, Data Structures & Algorithms, Database Management Systems, Object-Oriented Software Engineering, and Operating Systems.",
+    "coursework": [
+      "Data Structures & Algorithms",
+      "Database Management Systems (DBMS)",
+      "Operating Systems & Distributed Computing",
+      "Object-Oriented Programming (Java / C++)",
+      "Software Engineering & System Design"
+    ]
+  }
+]

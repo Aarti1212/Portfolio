@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" fill="none">
+  <defs>
+    <linearGradient id="opsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f" />
+      <stop offset="100%" stop-color="#020c1b" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" rx="16" fill="url(#opsBg)" />
+  <rect x="2" y="2" width="596" height="336" rx="14" stroke="#172a45" stroke-width="1.5" />
+
+  <rect x="30" y="30" width="165" height="28" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+  <text x="112" y="49" font-family="monospace" font-size="11" fill="#38bdf8" text-anchor="middle">● Triton + Ray Serving</text>
+
+  <!-- K8s Cluster Box -->
+  <rect x="50" y="85" width="500" height="210" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-dasharray="6 4" stroke-width="1.5" />
+  <text x="75" y="110" font-family="monospace" font-size="11" fill="#64748b">Kubernetes GPU Cluster (Auto-scaling)</text>
+
+  <!-- Nodes inside K8s -->
+  <g transform="translate(70, 130)">
+    <rect x="0" y="0" width="120" height="130" rx="8" fill="#112240" stroke="#64ffda" stroke-width="1.5" />
+    <text x="60" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#64ffda" text-anchor="middle">Feast Store</text>
+    <text x="60" y="55" font-family="monospace" font-size="10" fill="#8892b0" text-anchor="middle">Redis Online</text>
+    <text x="60" y="80" font-family="monospace" font-size="10" fill="#8892b0" text-anchor="middle">Point-in-Time</text>
+    <text x="60" y="105" font-family="monospace" font-size="10" fill="#ccd6f6" text-anchor="middle">&lt;2ms Fetch</text>
+  </g>
+
+  <g transform="translate(230, 130)">
+    <rect x="0" y="0" width="140" height="130" rx="8" fill="#112240" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="70" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#38bdf8" text-anchor="middle">Triton Server</text>
+    <text x="70" y="55" font-family="monospace" font-size="10" fill="#8892b0" text-anchor="middle">Dynamic Batching</text>
+    <text x="70" y="80" font-family="monospace" font-size="10" fill="#8892b0" text-anchor="middle">TensorRT Plans</text>
+    <text x="70" y="105" font-family="monospace" font-size="10" fill="#34d399" text-anchor="middle">32,000 RPS</text>
+  </g>
+
+  <g transform="translate(410, 130)">
+    <rect x="0" y="0" width="120" height="130" rx="8" fill="#112240" stroke="#f472b6" stroke-width="1.5" />
+    <text x="60" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#f472b6" text-anchor="middle">Observability</text>
+    <text x="60" y="55" font-family="monospace" font-size="10" fill="#8892b0" text-anchor="middle">Prometheus</text>
+    <text x="60" y="80" font-family="monospace" font-size="10" fill="#8892b0" text-anchor="middle">Evidently AI</text>
+    <text x="60" y="105" font-family="monospace" font-size="10" fill="#ccd6f6" text-anchor="middle">Drift Alerts</text>
+  </g>
+
+  <!-- Connectors -->
+  <line x1="190" y1="195" x2="230" y2="195" stroke="#64ffda" stroke-width="2" />
+  <line x1="370" y1="195" x2="410" y2="195" stroke="#38bdf8" stroke-width="2" />
+</svg>

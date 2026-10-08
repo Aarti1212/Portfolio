@@ -1,0 +1,96 @@
+[
+  {
+    "id": "exp-pnc",
+    "role": "AI / ML Engineer",
+    "company": "PNC Bank",
+    "companyUrl": "https://www.pnc.com",
+    "location": "Phoenix, AZ",
+    "period": "Jan 2026 – Aug 2026",
+    "type": "Full-time",
+    "summary": "Engineered an enterprise AI-powered credit risk and decisioning platform integrating real-time ML risk scoring with LangGraph agentic orchestration and LLM-generated explainable underwriting justifications.",
+    "highlights": [
+      "Architected an AI-powered credit risk decisioning platform combining real-time streaming financial data with predictive ML models and LLM reasoning engines, automating loan approvals while delivering clear, audit-compliant natural language explanations for human underwriters.",
+      "Engineered production-grade LangChain retrieval and orchestration pipelines with custom tool bindings, function calling, and structured output parsing across heterogeneous financial data sources, drastically reducing hallucinations via grounded context retrieval and tracking groundedness scores and tool-call success rates.",
+      "Designed fault-tolerant agentic workflows in LangGraph featuring memory persistence, SQLite checkpointing, and dynamic retry logic to execute complex, multi-step loan risk evaluations capable of pausing for compliance review and resuming seamlessly.",
+      "Built an automated LLM evaluation suite (BERTScore, custom rubric-based evaluators, hallucination detectors) integrated into MLflow dashboards for real-time model monitoring, drift detection, and automated alerting on quality degradation.",
+      "Developed high-throughput FastAPI microservices for real-time credit scoring, AI decisioning, and agent orchestration, tracking p95 latency (<120ms), system throughput, and error rates in enterprise production.",
+      "Constructed interactive stakeholder dashboards in ReactJS and TypeScript to monitor model drift, decision accuracy, underwriting throughput, and operational KPIs, giving executives and risk officers continuous visibility.",
+      "Maintained strict alignment with Federal banking regulations, Model Risk Governance (MRG), explainability standards (SHAP/LLM rationale), and enterprise zero-trust security policies."
+    ],
+    "technologies": ["Python", "LangChain", "LangGraph", "FastAPI", "MLflow", "ReactJS", "TypeScript", "Docker", "PostgreSQL", "BERTScore", "AWS Bedrock"]
+  },
+  {
+    "id": "exp-cdreams",
+    "role": "AI / ML Engineer",
+    "company": "CDreams Foundation",
+    "companyUrl": "https://example.com/cdreams",
+    "location": "Phoenix, AZ",
+    "period": "Mar 2025 – Jan 2026",
+    "type": "Full-time",
+    "summary": "Spearheaded the development of an enterprise RAG knowledge assistant powered by Claude 3.5 Sonnet, LlamaIndex, and Pinecone to automate complex document analysis and contextual Q&A.",
+    "highlights": [
+      "Developed and deployed an enterprise knowledge assistant leveraging Anthropic Claude 3.5 Sonnet to automate policy analysis, complex document Q&A, and support workflows, tracking deflection rate, answer accuracy, user CSAT, and token cost per query.",
+      "Built end-to-end Retrieval-Augmented Generation (RAG) pipelines using LangChain, LlamaIndex, and Pinecone vector database over thousands of internal policy documents, HR manuals, and business guides, optimizing Recall@k, context faithfulness, and hallucination reduction.",
+      "Designed intelligent document ingestion pipelines incorporating hierarchical chunking, semantic boundary splitting, metadata tagging, and vector indexing to enhance retrieval precision on dense technical manuals.",
+      "Implemented advanced prompt engineering, dynamic few-shot prompting, and prompt optimization strategies to ensure high reasoning fidelity, domain-specific compliance, and deterministic output schemas.",
+      "Performed comprehensive quantitative data analysis with Python (Pandas/NumPy) and SQL to audit pipeline retrieval logs, identify information gaps, and deliver actionable data integrity reports to stakeholders."
+    ],
+    "technologies": ["Python", "Claude 3.5 Sonnet", "LangChain", "LlamaIndex", "Pinecone", "FastAPI", "Prompt Engineering", "SQL", "Pandas", "Docker"]
+  },
+  {
+    "id": "exp-amex",
+    "role": "GenAI Engineer",
+    "company": "American Express",
+    "companyUrl": "https://www.americanexpress.com",
+    "location": "Phoenix, AZ",
+    "period": "Oct 2024 – Mar 2025",
+    "type": "Full-time",
+    "summary": "Built high-scale GenAI search pipelines serving 60K+ daily queries across 4 global markets, boosting mobile app CTR by 15% and digital containment by 3%.",
+    "highlights": [
+      "Built and scaled GenAI-powered search pipelines combining semantic dense vector retrieval, fuzzy matching, and keyword-based search serving 60,000+ daily queries across US, UK, Australia, and Japan markets, driving a 15% increase in click-through rate (CTR) and a 3% boost in digital self-service containment.",
+      "Benchmarked and deployed a rigorous search evaluation framework utilizing 1,200 GPT-labeled test queries; integrated human-in-the-loop validation to fine-tune retrieval thresholds and dramatically enhance precision.",
+      "Engineered an event-driven data streaming architecture with Apache Kafka to facilitate low-latency communication and continuous query event processing between distributed search microservices.",
+      "Developed a high-precision Named Entity Recognition (NER) pipeline (combining spaCy, NLTK, and regex) to extract transaction amounts, merchant names, dates, and intent, resolving 3,000+ previously unhandled empty queries per month.",
+      "Architected the NER microservices layer using Docker and RESTful APIs, ensuring decoupled scaling and sub-35ms response times across global endpoints.",
+      "Enhanced American Express mobile app search relevance by analyzing user interaction logs and using LLMs to synthesize dynamic FAQ answers and contextual cards, directly deflecting live chat escalation volume.",
+      "Contributed to building the production Typeahead API for the AMEX mobile app, reliably processing 45,000+ autocomplete requests daily with low latency.",
+      "Built an internal technical documentation portal in Docusaurus using ReactJS and TypeScript, streamlining engineering onboarding and establishing standard API guidelines."
+    ],
+    "technologies": ["Python", "LangChain", "spaCy", "NLTK", "Kafka", "Tableau", "FastAPI", "Docker", "ReactJS", "TypeScript", "Docusaurus", "SQL"]
+  },
+  {
+    "id": "exp-zigzag",
+    "role": "Data Scientist",
+    "company": "ZigZag Venture Capital",
+    "companyUrl": "https://example.com/zigzag",
+    "location": "Irvine, CA",
+    "period": "Jan 2024 – Jun 2024",
+    "type": "Contract / Part-time",
+    "summary": "Applied NLP topic modeling and predictive machine learning models to analyze thousands of startup pitches and extract market intelligence for investment screening.",
+    "highlights": [
+      "Applied BERTopic, Latent Dirichlet Allocation (LDA), and transformer-based NLP models to extract thematic market trends and clustering patterns from thousands of user-submitted startup ideas, accelerating early-stage thesis evaluation.",
+      "Developed a predictive investment scoring framework using gradient boosting models (XGBoost/LightGBM) to rank high-potential startup submissions, leading to a 2x higher portfolio investment conversion rate.",
+      "Automated executive KPI dashboards in Tableau and Power BI, providing venture partners with live visibility into startup category distribution, founder signals, and scoring metrics while reducing manual weekly reporting by 50%.",
+      "Collaborated closely with venture partners, product managers, and data analysts to establish rigorous data validation checks and QA protocols across unstructured submission data."
+    ],
+    "technologies": ["Python", "BERTopic", "LDA", "Transformers", "scikit-learn", "XGBoost", "Tableau", "Power BI", "SQL", "Pandas"]
+  },
+  {
+    "id": "exp-infosys",
+    "role": "Senior Software Engineer",
+    "company": "Infosys Limited",
+    "companyUrl": "https://www.infosys.com",
+    "location": "Pune, India",
+    "period": "Mar 2021 – Apr 2023",
+    "type": "Full-time",
+    "summary": "Architected distributed enterprise microservices, high-throughput financial ETL pipelines, and asynchronous message brokers processing large-scale ERP data.",
+    "highlights": [
+      "Developed Java and Python-based automation tools to extract, transform, and validate high-volume financial datasets from ERP platforms, cutting end-to-end processing time by 40% with zero data loss across regulatory audits.",
+      "Designed and implemented a scalable microservices architecture integrated with ActiveMQ message brokers for reliable asynchronous communication across enterprise business units.",
+      "Built automated eCommerce integration workflows using MuleSoft APIs and Jenkins CI/CD pipelines, automating testing suites and eliminating manual deployment friction.",
+      "Optimized complex SQL queries, index layouts, and database schemas in MySQL and PostgreSQL, coupled with Redis caching layers, cutting query execution times by 40% and accelerating downstream analytics.",
+      "Implemented comprehensive automated data validation, sanity checks, and error logging across ETL batch jobs to proactively detect schema anomalies and data drift."
+    ],
+    "technologies": ["Java", "Python", "SQL", "PostgreSQL", "MySQL", "Redis", "ActiveMQ", "MuleSoft", "Docker", "Jenkins", "Git"]
+  }
+]

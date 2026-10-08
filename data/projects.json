@@ -1,0 +1,182 @@
+[
+  {
+    "id": "agentic-doc-qa-mcp",
+    "title": "Agentic Document Q&A System with Model Context Protocol (MCP)",
+    "summary": "Multi-agent research and document intelligence platform where Planner, Retriever, and Synthesizer agents coordinate via MCP for fully grounded, verifiable Q&A over complex paper archives.",
+    "category": "Agents",
+    "featured": true,
+    "image": "assets/images/project-agent.svg",
+    "techStack": ["Python", "MCP (Model Context Protocol)", "LangChain", "OpenAI GPT-4", "ChromaDB / Pinecone", "FastAPI"],
+    "tags": ["MCP", "Multi-Agent", "LangChain", "RAG", "Agentic Workflows", "Vector Search"],
+    "links": {
+      "github": "https://github.com/Aarti1212/agentic-doc-qa-mcp",
+      "demo": "",
+      "huggingface": "https://huggingface.co/spaces/Aarti1212/mcp-document-agent",
+      "paper": ""
+    },
+    "problem": "Single-prompt RAG architectures struggle when processing dense technical literature and multi-document queries, often hallucinating citations or failing to recognize ambiguous user intents across disparate document collections.",
+    "approach": "Built a modular multi-agent system governed by Anthropic's Model Context Protocol (MCP) standard. The architecture assigns distinct specialized agents: (1) Planner Agent decomposes complex multi-hop questions into focused sub-queries; (2) Retriever Agent interfaces with vector embeddings via MCP tool calls to fetch grounded chunk candidates; and (3) Answer Agent verifies context consistency, resolves conflicts, and generates synthesized responses with citation anchors.",
+    "architecture": "graph TD\n    A[User Query] --> B[Planner Agent via MCP]\n    B --> C{Query Sub-Decomposition}\n    C --> D[Sub-Query 1: Core Methodology]\n    C --> E[Sub-Query 2: Empirical Results]\n    D & E --> F[Retriever Agent: Vector & Semantic Search]\n    F --> G[Context Relevance & Cross-Check]\n    G --> H[Answer Synthesis Agent]\n    H --> I[Citation Verification & Faithfulness Check]\n    I --> J[Final Structured Response Stream]",
+    "metrics": [
+      { "label": "Answer Faithfulness", "value": "96.4%", "delta": "+24% over Single-Prompt RAG" },
+      { "label": "Citation Accuracy", "value": "99.1%", "delta": "Verified chunk-level provenance" },
+      { "label": "Multi-Hop Query Resolution", "value": "91.8%", "delta": "Evaluated across 250 research benchmarks" }
+    ],
+    "challengesAndLearnings": "Ensuring deterministic state handoffs between MCP-connected agents required defining strict JSON Schema protocol contracts and implementing a consensus verification step before the synthesizer outputs final responses.",
+    "codeSnippet": {
+      "language": "python",
+      "code": "from mcp.server.fastmcp import FastMCP\nfrom langchain.chains import RetrievalQA\n\nmcp = FastMCP(\"DocumentIntelligenceServer\")\n\n@mcp.tool()\nasync def retrieve_grounded_chunks(query: str, top_k: int = 5) -> list[dict]:\n    \"\"\"Fetches semantically relevant passages with source metadata and similarity scores.\"\"\"\n    results = await vector_store.asimilarity_search_with_score(query, k=top_k)\n    return [\n        {\"text\": doc.page_content, \"source\": doc.metadata.get(\"source\"), \"score\": score}\n        for doc, score in results if score >= 0.75\n    ]"
+    },
+    "whatIdDoNext": "Expand MCP tool bindings to support live dynamic code execution (Python REPL sandbox) for validating mathematical formulas and data tables found in research documents."
+  },
+  {
+    "id": "conversational-voice-assistant",
+    "title": "Ultra-Low Latency Conversational Voice Assistant",
+    "summary": "Real-time bidirectional conversational AI voice agent featuring dynamic turn-detection and response streaming, cutting perceived end-to-end latency from 0.98s to 0.34s.",
+    "category": "GenAI/LLM",
+    "featured": true,
+    "image": "assets/images/project-rag.svg",
+    "techStack": ["Python", "LiveKit WebRTC", "ElevenLabs Voice API", "OpenAI GPT-4o-mini", "Deepgram STT", "AsyncIO"],
+    "tags": ["Voice AI", "LiveKit", "ElevenLabs", "GPT-4o", "WebRTC", "Real-Time Streaming"],
+    "links": {
+      "github": "https://github.com/Aarti1212/voice-assistant-livekit",
+      "demo": "",
+      "huggingface": "",
+      "paper": ""
+    },
+    "problem": "Traditional conversational voice interfaces feel robotic and clunky due to multi-second delays between user speech pauses, speech-to-text transcript processing, LLM completion generation, and text-to-speech audio rendering.",
+    "approach": "Engineered a low-latency streaming pipeline leveraging LiveKit WebRTC transport, Deepgram streaming Speech-to-Text (STT), OpenAI GPT-4o-mini with token-by-token streaming, and ElevenLabs WebSocket Text-to-Speech (TTS). Implemented dynamic Voice Activity Detection (VAD) and intelligent sentence boundary chunking to begin audio playback while downstream tokens are still generating.",
+    "architecture": "graph LR\n    A[User Voice Input] --> B[LiveKit WebRTC Audio Stream]\n    B --> C[Deepgram Streaming STT <100ms]\n    C --> D[Dynamic VAD / Turn Detector]\n    D --> E[GPT-4o-mini Streaming Tokens]\n    E --> F[Sentence Buffer & Chunking]\n    F --> G[ElevenLabs WebSocket TTS]\n    G --> H[Audio Stream to User Headset <340ms]",
+    "metrics": [
+      { "label": "Perceived Response Latency", "value": "0.34s", "delta": "Down from 0.98s (65% reduction)" },
+      { "label": "Interruption Handling", "value": "<80ms", "delta": "Instant audio cutoff on user barge-in" },
+      { "label": "Speech Recognition Accuracy", "value": "97.8%", "delta": "Using continuous streaming Nova-2 STT" }
+    ],
+    "challengesAndLearnings": "Handling natural user interruptions ('barge-in') without clipping required an asynchronous cancellation event bus that instantly drains the audio playback buffer and cancels in-flight LLM generations when user speech is detected.",
+    "codeSnippet": {
+      "language": "python",
+      "code": "async def stream_llm_to_voice(token_stream, tts_websocket, session_context):\n    \"\"\"Buffers tokens into phonetic clause chunks for immediate audio synthesis.\"\"\"\n    buffer = \"\"\n    punctuation_delimiters = {\".\", \"?\", \"!\", \",\", \";\", \":\"}\n    \n    async for token in token_stream:\n        if session_context.interrupted.is_set():\n            await tts_websocket.send_json({\"action\": \"clear_buffer\"})\n            break\n        buffer += token\n        if any(p in token for p in punctuation_delimiters) and len(buffer.split()) >= 3:\n            await tts_websocket.send_text(buffer.strip())\n            buffer = \"\""
+    },
+    "whatIdDoNext": "Implement on-device local SLM (Small Language Model) inference with whisper.cpp to enable fully offline, private edge voice agents."
+  },
+  {
+    "id": "snowflake-cortex-marketing-agent",
+    "title": "Enterprise Marketing & Sales Intelligence Agent in Snowflake",
+    "summary": "Autonomous AI agent inside Snowflake data cloud combining Cortex Analyst and Cortex Search with Dynamic Tables, masking policies, and semantic layers for enterprise insights.",
+    "category": "GenAI/LLM",
+    "featured": true,
+    "image": "assets/images/project-finetune.svg",
+    "techStack": ["Snowflake Cortex AI", "Dynamic Tables", "SQL / Python", "Cortex Search", "Cortex Analyst", "Streamlit"],
+    "tags": ["Snowflake", "Cortex AI", "Dynamic Tables", "Enterprise Data", "Semantic Layer", "Data Governance"],
+    "links": {
+      "github": "https://github.com/Aarti1212/snowflake-cortex-sales-agent",
+      "demo": "",
+      "huggingface": "",
+      "paper": ""
+    },
+    "problem": "Marketing and sales operations required hours of manual SQL writing and analyst support to combine structured CRM sales pipeline metrics with unstructured customer feedback and call transcripts.",
+    "approach": "Built an automated in-database AI intelligence agent leveraging Snowflake Cortex AI. Configured Snowflake Dynamic Tables to automate incremental sentiment analysis and customer intent classification over raw logs. Defined an enterprise semantic data layer with column-level masking and RBAC security policies, allowing business users to ask natural language questions via Cortex Analyst and Cortex Search.",
+    "architecture": "graph TD\n    A[Raw Sales & CRM Logs] --> B[Snowflake Ingestion Stage]\n    B --> C[Dynamic Tables: Incremental ETL & Sentiment Scoring]\n    C --> D[Enterprise Semantic Data Model & Masking Policies]\n    D --> E[Cortex Search: Unstructured Feedback]\n    D --> F[Cortex Analyst: Text-to-SQL & Aggregations]\n    E & F --> G[Streamlit Executive Intelligence Dashboard]",
+    "metrics": [
+      { "label": "Query Turnaround Time", "value": "<5s", "delta": "Down from 2-day manual analyst request backlog" },
+      { "label": "Data Governance Compliance", "value": "100%", "delta": "Zero-leakage via Snowflake dynamic masking" },
+      { "label": "Insight Generation Automation", "value": "85%", "delta": "Automated reporting across 12 product lines" }
+    ],
+    "challengesAndLearnings": "Calibrating the semantic YAML model for Cortex Analyst to correctly map domain-specific sales terminology ('ARR', 'Expansion MRR', 'Churn Pipeline') into precise multi-table SQL joins.",
+    "codeSnippet": {
+      "language": "sql",
+      "code": "-- Snowflake Dynamic Table with Cortex Sentiment Extraction\nCREATE OR REPLACE DYNAMIC TABLE DT_MARKETING_SENTIMENT_ENRICHED\n  TARGET_LAG = '10 MINUTES'\n  WAREHOUSE = COMPUTE_WH\nAS\nSELECT \n    lead_id,\n    account_name,\n    feedback_text,\n    SNOWFLAKE.CORTEX.SENTIMENT(feedback_text) AS sentiment_score,\n    SNOWFLAKE.CORTEX.CLASSIFY_TEXT(feedback_text, ['Churn Risk', 'Feature Request', 'Pricing Inquiry', 'Expansion']) AS intent_category,\n    CURRENT_TIMESTAMP() AS processed_at\nFROM RAW_CUSTOMER_INTERACTIONS;"
+    },
+    "whatIdDoNext": "Connect automated outbound alerting via Snowflake Webhooks to notify account executives in Slack when high-value accounts show negative sentiment spikes."
+  },
+  {
+    "id": "multi-agent-content-crewai",
+    "title": "Autonomous Multi-Agent Content Generation & Review Pipeline",
+    "summary": "Collaborative multi-agent framework utilizing CrewAI and LLaMA 2 7B / GPT-4o to coordinate Planner, Writer, and Editor agents for automated, brand-consistent content production.",
+    "category": "Agents",
+    "featured": false,
+    "image": "assets/images/project-agent.svg",
+    "techStack": ["Python", "CrewAI", "LLaMA 2 7B", "GPT-4o-mini", "LangChain", "Streamlit"],
+    "tags": ["CrewAI", "Multi-Agent", "LLaMA 2", "Content Automation", "Role-Playing Agents"],
+    "links": {
+      "github": "https://github.com/Aarti1212/crewai-content-pipeline",
+      "demo": "",
+      "huggingface": "",
+      "paper": ""
+    },
+    "problem": "Creating consistent, high-quality technical documentation and marketing briefs requires extensive cross-functional coordination, leading to editorial bottlenecks and brand voice divergence.",
+    "approach": "Engineered a hierarchical multi-agent workflow with CrewAI. Defined autonomous personas: (1) Strategy Planner gathers market trends and structures the outline; (2) Content Writer drafts detailed copy incorporating technical depth; and (3) Senior Editor critiques the draft against brand voice, factual correctness, and SEO guidelines in an iterative critique loop.",
+    "architecture": "graph LR\n    A[Content Brief / Topic] --> B[Planner Agent: Research & Outline]\n    B --> C[Writer Agent: First Draft Creation]\n    C --> D[Editor Agent: Compliance & Fact Checking]\n    D -- Revisions Needed --> C\n    D -- Approved --> E[Final Markdown & Social Formats]",
+    "metrics": [
+      { "label": "Production Time Reduction", "value": "75%", "delta": "From 6 hours to 15 minutes per brief" },
+      { "label": "Editorial Consistency Score", "value": "94%", "delta": "Measured across 100+ generated documents" },
+      { "label": "Cost per Article", "value": "<$0.08", "delta": "Optimized prompt token allocation" }
+    ],
+    "challengesAndLearnings": "Preventing agents from getting trapped in endless circular revision loops by setting explicit max_iter thresholds and providing calibrated grading rubrics to the Editor agent.",
+    "codeSnippet": {
+      "language": "python",
+      "code": "from crewai import Agent, Task, Crew, Process\n\nplanner = Agent(\n    role=\"Content Strategist\",\n    goal=\"Develop comprehensive research outlines for technical AI topics\",\n    backstory=\"Expert tech analyst skilled in synthesizing complex ML papers.\",\n    verbose=True\n)\n\nwriter = Agent(\n    role=\"Senior Technical Writer\",\n    goal=\"Draft engaging, accurate technical articles with code examples\",\n    backstory=\"Veteran developer advocate who writes clear, impactful tutorials.\",\n    verbose=True\n)\n\ncrew = Crew(agents=[planner, writer], tasks=[research_task, write_task], process=Process.sequential)\nresult = crew.kickoff()"
+    },
+    "whatIdDoNext": "Add multimodal image generation agent using Stable Diffusion / FLUX to automatically create diagrams and hero graphics for every published article."
+  },
+  {
+    "id": "amex-hybrid-search-engine",
+    "title": "Enterprise GenAI Search & Real-Time NER Pipeline",
+    "summary": "Large-scale search infrastructure serving 60K+ daily queries across 4 international markets, combining dense semantic search, fuzzy matching, and spaCy NER.",
+    "category": "NLP",
+    "featured": false,
+    "image": "assets/images/project-mlops.svg",
+    "techStack": ["Python", "FastAPI", "Apache Kafka", "spaCy", "NLTK", "Docker", "Tableau", "ReactJS"],
+    "tags": ["NLP", "NER", "Kafka", "Hybrid Search", "High-Throughput", "Microservices"],
+    "links": {
+      "github": "https://github.com/Aarti1212/amex-hybrid-search-pipeline",
+      "demo": "",
+      "huggingface": "",
+      "paper": ""
+    },
+    "problem": "Mobile app users frequently entered complex, unstructured financial search queries (e.g., 'refund from delta airlines last month over $200') which failed on keyword search, yielding empty results and chat escalation.",
+    "approach": "Architected a hybrid search retrieval engine combining dense vector embeddings, fuzzy matching, and an asynchronous Named Entity Recognition (NER) pipeline (spaCy, NLTK, regex) to extract temporal entities, merchant names, and monetary values. Integrated Apache Kafka for event-driven telemetry and built Tableau performance dashboards.",
+    "architecture": "graph TD\n    A[Mobile App Search: 60K+ req/day] --> B[Typeahead & Gateway API]\n    B --> C{Query Parser}\n    C --> D[NER Microservice: spaCy + Regex]\n    C --> E[Dense Semantic Embeddings]\n    C --> F[Fuzzy / Keyword Index]\n    D & E & F --> G[Hybrid Score Fusion & Reranking]\n    G --> H[Personalized Card Results & FAQ Synthesis]\n    H --> I[Kafka Event Stream for Analytics]",
+    "metrics": [
+      { "label": "Click-Through Rate (CTR)", "value": "+15%", "delta": "Measured across US, UK, AU, JP markets" },
+      { "label": "Digital Containment Lift", "value": "+3%", "delta": "Directly reduced customer support escalations" },
+      { "label": "Empty Query Resolution", "value": "3,000+/mo", "delta": "Successfully parsed via custom NER pipeline" }
+    ],
+    "challengesAndLearnings": "Ensuring sub-35ms response times across international markets required caching frequent query entity representations and executing vector similarity and fuzzy lookups in parallel threads.",
+    "codeSnippet": {
+      "language": "python",
+      "code": "import spacy, re\n\nnlp = spacy.load(\"en_core_web_sm\")\n\ndef extract_financial_entities(query_text: str) -> dict:\n    \"\"\"Extracts merchant, transaction amounts, and date ranges from search queries.\"\"\"\n    doc = nlp(query_text)\n    entities = {\"merchants\": [], \"amounts\": [], \"dates\": []}\n    for ent in doc.ents:\n        if ent.label_ in [\"ORG\", \"PERSON\"]: entities[\"merchants\"].append(ent.text)\n        elif ent.label_ == \"MONEY\": entities[\"amounts\"].append(ent.text)\n        elif ent.label_ == \"DATE\": entities[\"dates\"].append(ent.text)\n    # Regex fallback for currency notation\n    if not entities[\"amounts\"]:\n        entities[\"amounts\"] = re.findall(r'\\$\\d+(?:\\.\\d{2})?', query_text)\n    return entities"
+    },
+    "whatIdDoNext": "Incorporate cross-lingual sentence embeddings (LaBSE / Multilingual E5) for zero-shot Japanese and European language query understanding."
+  },
+  {
+    "id": "pnc-credit-risk-agentic-platform",
+    "title": "AI-Powered Credit Risk & Decisioning Agentic Platform",
+    "summary": "Stateful agentic decisioning system in LangGraph featuring memory persistence, SQLite checkpointing, MLflow evaluation, and ReactJS explainability dashboards.",
+    "category": "MLOps",
+    "featured": false,
+    "image": "assets/images/project-vision.svg",
+    "techStack": ["Python", "LangGraph", "LangChain", "FastAPI", "MLflow", "ReactJS", "PostgreSQL", "Docker"],
+    "tags": ["Credit Risk", "LangGraph", "Explainable AI", "MLflow", "Model Governance", "FinTech"],
+    "links": {
+      "github": "https://github.com/Aarti1212/pnc-credit-risk-agentic-system",
+      "demo": "",
+      "huggingface": "",
+      "paper": ""
+    },
+    "problem": "Commercial loan underwriting required manual aggregation of structured financial statements, credit bureau feeds, and qualitative disclosures, taking up to 72 hours per application with fragmented audit trails.",
+    "approach": "Constructed a stateful agentic decisioning platform in LangGraph with memory persistence and checkpointing. Combined statistical risk models with LLM-based reasoning chains to generate standardized, regulatory-compliant risk profiles with full provenance tracking and MLflow monitoring.",
+    "architecture": "graph TD\n    A[Loan Application Feed] --> B[FastAPI Gateway]\n    B --> C[Data Aggregator: Bureau + Banking Statements]\n    C --> D[Statistical ML Risk Scoring Model]\n    D --> E[LangGraph Stateful Underwriting Agent]\n    E --> F[Automated Compliance & Sanctions Check]\n    F --> G[Explainability & Underwriter Memo Generator]\n    G --> H[MLflow Governance & Alerting]\n    G --> I[ReactJS Underwriter Cockpit]",
+    "metrics": [
+      { "label": "Underwriting Cycle Time", "value": "-65%", "delta": "From days to automated preliminary memo in minutes" },
+      { "label": "P95 Service Latency", "value": "<120ms", "delta": "Real-time scoring microservices" },
+      { "label": "Audit Traceability", "value": "100%", "delta": "Complete checkpoint history for regulatory review" }
+    ],
+    "challengesAndLearnings": "Ensuring the system strictly adhered to fair lending regulations and explainability criteria was achieved by decoupling the mathematical scoring engine from the LLM narrative synthesizer, ensuring deterministic risk tiering.",
+    "codeSnippet": {
+      "language": "python",
+      "code": "from langgraph.graph import StateGraph, END\n\nclass UnderwritingState(dict):\n    application_id: str\n    financial_metrics: dict\n    risk_score: float\n    compliance_passed: bool\n    decision_memo: str\n\nworkflow = StateGraph(UnderwritingState)\nworkflow.add_node(\"calculate_risk\", compute_risk_features)\nworkflow.add_node(\"verify_compliance\", check_regulatory_rules)\nworkflow.add_node(\"synthesize_memo\", generate_underwriter_rationale)\n\nworkflow.set_entry_point(\"calculate_risk\")\nworkflow.add_edge(\"calculate_risk\", \"verify_compliance\")\nworkflow.add_edge(\"verify_compliance\", \"synthesize_memo\")\nworkflow.add_edge(\"synthesize_memo\", END)\n\napp = workflow.compile(checkpointer=sqlite_memory_saver)"
+    },
+    "whatIdDoNext": "Incorporate automated counterfactual explanation generation ('What specific balance changes would approve this credit tier?')."
+  }
+]

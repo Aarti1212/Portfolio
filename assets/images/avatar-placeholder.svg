@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="100" fill="url(#avatarBg)" />
+  <circle cx="100" cy="100" r="94" stroke="url(#ringGrad)" stroke-width="3" stroke-dasharray="6 4" />
+  
+  <!-- Stylized Geometric Head & Body -->
+  <circle cx="100" cy="80" r="34" fill="#334155" stroke="#38bdf8" stroke-width="2" />
+  <!-- Neural overlay on forehead -->
+  <circle cx="92" cy="74" r="3" fill="#38bdf8" />
+  <circle cx="108" cy="74" r="3" fill="#38bdf8" />
+  <circle cx="100" cy="86" r="3" fill="#818cf8" />
+  <line x1="92" y1="74" x2="100" y2="86" stroke="#38bdf8" stroke-width="1.5" />
+  <line x1="108" y1="74" x2="100" y2="86" stroke="#38bdf8" stroke-width="1.5" />
+  
+  <!-- Shoulders -->
+  <path d="M42 165 C42 125, 158 125, 158 165" fill="#1e293b" stroke="#818cf8" stroke-width="2" />
+  
+  <!-- Glow badge -->
+  <circle cx="150" cy="150" r="14" fill="#0f172a" stroke="#34d399" stroke-width="2" />
+  <circle cx="150" cy="150" r="6" fill="#34d399" />
+</svg>

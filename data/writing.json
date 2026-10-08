@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "id": "post-1",
+      "title": "Building Reliable Multi-Agent Systems with Model Context Protocol (MCP) & LangGraph",
+      "date": "2024-09-12",
+      "readingTime": "8 min read",
+      "type": "Architecture Guide",
+      "summary": "How standardizing tool execution and state graph checkpointing solves the brittle handoff problem across enterprise multi-agent workflows.",
+      "url": "https://example.com/blog/mcp-langgraph-multi-agents",
+      "tags": ["MCP", "LangGraph", "Multi-Agent", "Python", "Architecture"]
+    },
+    {
+      "id": "post-2",
+      "title": "Scaling Enterprise Search to 60K+ Daily Queries: Dense Embeddings, BM25 & NER",
+      "date": "2024-06-18",
+      "readingTime": "11 min read",
+      "type": "Case Study",
+      "summary": "Architectural breakdown of how we combined spaCy entity extraction, sparse lexical indexing, and vector similarity to achieve sub-35ms search across international markets.",
+      "url": "https://example.com/blog/scaling-enterprise-hybrid-search",
+      "tags": ["NLP", "NER", "Kafka", "Hybrid Search", "FastAPI"]
+    },
+    {
+      "id": "post-3",
+      "title": "Achieving Sub-400ms Voice AI Latency with LiveKit, ElevenLabs & Dynamic VAD",
+      "date": "2024-03-25",
+      "readingTime": "7 min read",
+      "type": "Engineering Deep Dive",
+      "summary": "Engineering a real-time speech agent: clause-based token buffering, dynamic turn detection, and graceful audio interruption handling over WebRTC.",
+      "url": "https://example.com/blog/low-latency-voice-assistant-livekit",
+      "tags": ["Voice AI", "LiveKit", "ElevenLabs", "WebRTC", "Streaming"]
+    },
+    {
+      "id": "post-4",
+      "title": "In-Database GenAI with Snowflake Cortex: Dynamic Tables & Semantic Governance",
+      "date": "2023-12-05",
+      "readingTime": "9 min read",
+      "type": "Tutorial",
+      "summary": "How to unlock natural language analytics over CRM feedback and structured sales data directly within Snowflake without data movement.",
+      "url": "https://example.com/blog/snowflake-cortex-dynamic-tables",
+      "tags": ["Snowflake", "Cortex AI", "SQL", "Data Governance"]
+    }
+  ],
+  "tilNotes": [
+    {
+      "id": "til-1",
+      "date": "2024-08-19",
+      "title": "LangGraph SQLite Checkpoint Memory Management",
+      "snippet": "Using SQLiteSaver with a partitioned thread_id strategy allows resuming long-running human-in-the-loop credit approval agent graphs across service restarts with zero state corruption."
+    },
+    {
+      "id": "til-2",
+      "date": "2024-05-30",
+      "title": "Streaming Clause Buffer for Voice TTS",
+      "snippet": "Splitting LLM token streams on punctuation boundaries (periods, commas, semicolons) with a minimum 3-word buffer reduces audio synthesis delay to under 120ms without cutting off words."
+    },
+    {
+      "id": "til-3",
+      "date": "2024-02-14",
+      "title": "Hybrid Search Reciprocal Rank Fusion (RRF) Constant (k=60)",
+      "snippet": "Setting RRF smoothing constant k=60 consistently outscores weighted linear score combination when fusing dense vector cosine distances with BM25 keyword rankings."
+    }
+  ]
+}
