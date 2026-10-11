@@ -2,7 +2,7 @@
   "name": "Aarti Barve",
   "title": "AI / Machine Learning Engineer | GenAI & Agentic Systems",
   "tagline": "Building enterprise-grade Generative AI systems, autonomous multi-agent workflows, production RAG pipelines, and high-throughput ML microservices.",
-  "location": "Phoenix, AZ / Open to Remote",
+  "location": "United States",
   "phone": "949-337-3685",
   "email": "aartibarve11@gmail.com",
   "availableForHire": true,
@@ -42,8 +42,8 @@
     "phone": "tel:949-337-3685",
     "huggingface": "https://huggingface.co/Aarti1212"
   },
-  "resumePath": "assets/resume.pdf",
-  "avatar": "assets/images/avatar-placeholder.svg",
+  "resumePath": "assets/Aarti_Resume_.pdf",
+  "avatar": "assets/images/aarti-pic.png",
   "config": {
     "showBlogSection": true,
     "showWritingSection": true,

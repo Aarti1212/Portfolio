@@ -38,6 +38,9 @@ export function renderProfile(profile) {
   const heroTaglineEl = document.getElementById('heroTagline');
   if (heroTaglineEl) heroTaglineEl.textContent = profile.tagline;
 
+  const aboutAvatarEl = document.getElementById('aboutAvatar');
+  if (aboutAvatarEl && profile.avatar) aboutAvatarEl.src = profile.avatar;
+
   const aboutNameEl = document.getElementById('aboutName');
   if (aboutNameEl) aboutNameEl.textContent = profile.name;
 
@@ -117,6 +120,13 @@ export function renderProfile(profile) {
         <span>${profile.location}</span>
       </div>
     `;
+  }
+
+  // Dynamic Resume Link binding
+  if (profile.resumePath) {
+    document.querySelectorAll('a[href*="resume.pdf"], a[href*="Resume"]').forEach(a => {
+      a.setAttribute('href', profile.resumePath);
+    });
   }
 }
 

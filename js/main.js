@@ -205,12 +205,12 @@ function initContactForm(profileConfig) {
       if (response.ok && (data.success === 'true' || data.success === true || !data.error)) {
         statusMsg.className = 'form-status-msg success';
         statusMsg.style.display = 'block';
-        statusMsg.innerHTML = `<strong>Message sent!</strong> Thank you, ${escapeStr(name)}. Your message has been sent directly to Aarti's inbox (<a href="mailto:${recipientEmail}" style="color: inherit; text-decoration: underline;">${recipientEmail}</a>). She will get back to you shortly!`;
+        statusMsg.innerHTML = `<strong>Message sent!</strong> Thank you. Aarti will get back to you shortly!`;
         form.reset();
       } else if (data.message && data.message.includes('needs Activation')) {
         statusMsg.className = 'form-status-msg success';
         statusMsg.style.display = 'block';
-        statusMsg.innerHTML = `<strong>Message received!</strong> Thank you, ${escapeStr(name)}. An activation confirmation has been dispatched to Aarti's inbox to link this form.`;
+        statusMsg.innerHTML = `<strong>Message sent!</strong> Thank you. Aarti will get back to you shortly!`;
         form.reset();
       } else {
         throw new Error(data.message || 'Form submission encountered an error');

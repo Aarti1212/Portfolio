@@ -19,7 +19,7 @@ export function initCommandPalette(projects) {
     { label: 'Jump to: Education & Certifications', icon: '🎓', action: () => scrollToSection('education') },
     { label: 'Jump to: Hobbies & Languages', icon: '🍳', action: () => scrollToSection('hobbies') },
     { label: 'Jump to: Contact', icon: '📬', action: () => scrollToSection('contact') },
-    { label: 'Action: Download Resume (PDF)', icon: '📄', action: () => window.open('assets/resume.pdf', '_blank') },
+    { label: 'Action: Download Resume (PDF)', icon: '📄', action: () => window.open('assets/Aarti_Resume_.pdf', '_blank') },
     { label: 'Action: Toggle Dark / Light Theme', icon: '🌗', action: () => document.getElementById('themeToggleBtn')?.click() },
     { label: 'Action: View GitHub Profile', icon: '🐙', action: () => window.open('https://github.com/Aarti1212', '_blank') },
     { label: 'Action: View LinkedIn Profile', icon: '🔗', action: () => window.open('https://linkedin.com/in/aarti11', '_blank') }
