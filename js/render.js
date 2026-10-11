@@ -203,7 +203,7 @@ export function renderProjects(projects) {
 export function renderSkills(skillsData) {
   if (!skillsData) return;
 
-  // Render Top Skills with the Scroll/Slider Visual
+  // Render Top Skills with the Visual Progress Bars
   const sliderContainer = document.getElementById('skillsSliderContainer') || document.getElementById('skillsCategoryGrid');
   if (sliderContainer && skillsData.topSkills) {
     sliderContainer.innerHTML = skillsData.topSkills.map(group => `
@@ -217,7 +217,7 @@ export function renderSkills(skillsData) {
           return `
             <div class="es-row">
               <div class="es-name">${escapeHtml(s.name)}</div>
-              <div class="es-track" tabindex="0" role="slider" aria-valuenow="${defaultVal}" aria-valuemin="10" aria-valuemax="100" aria-label="${escapeHtml(s.name)} proficiency" data-default="${defaultVal}" data-level="${escapeHtml(s.level)}">
+              <div class="es-track es-track--locked" aria-valuenow="${defaultVal}" aria-valuemin="10" aria-valuemax="100" aria-label="${escapeHtml(s.name)} proficiency" data-default="${defaultVal}">
                 <div class="es-bar"></div>
                 <div class="es-fill" style="width: 0%;"></div>
                 <div class="es-thumb" style="left: 0%;"></div>
@@ -227,15 +227,10 @@ export function renderSkills(skillsData) {
           `;
         }).join('')}
       </div>
-    `).join('') + `
-      <div class="es-footer">
-        <span>Interactive proficiency visual • Drag or click sliders to test</span>
-        <button type="button" id="esResetBtn">Reset to verified</button>
-      </div>
-    `;
+    `).join('');
 
-    // Initialize slider interactivity and scroll-triggered animations
-    initSkillsSlider(sliderContainer);
+    // Trigger smooth entrance animation when scrolled into view
+    animateSkillsBars(sliderContainer);
   }
 
   // Concept Explainers
@@ -272,106 +267,10 @@ export function renderSkills(skillsData) {
   }
 }
 
-// Interactive helper for .es slider visual
-function initSkillsSlider(container) {
+// Smooth entrance animation for visual proficiency bars (non-scrollable / locked)
+function animateSkillsBars(container) {
   if (!container) return;
 
-  function updateTrack(track, pct) {
-    const clamped = Math.min(100, Math.max(10, Math.round(pct)));
-    track.setAttribute('aria-valuenow', clamped);
-
-    const fill = track.querySelector('.es-fill');
-    const thumb = track.querySelector('.es-thumb');
-    const row = track.closest('.es-row');
-    const label = row ? row.querySelector('.es-label') : null;
-
-    if (fill) fill.style.width = `${clamped}%`;
-    if (thumb) thumb.style.left = `${clamped}%`;
-
-    if (label) {
-      if (clamped >= 90) {
-        label.textContent = 'Expert';
-      } else if (clamped >= 75) {
-        label.textContent = 'Proficient';
-      } else {
-        label.textContent = 'Learning';
-      }
-    }
-  }
-
-  container.querySelectorAll('.es-track').forEach(track => {
-    let isDragging = false;
-
-    function getPercentage(clientX) {
-      const rect = track.getBoundingClientRect();
-      const pos = clientX - rect.left;
-      return (pos / rect.width) * 100;
-    }
-
-    track.addEventListener('pointerdown', (e) => {
-      isDragging = true;
-      track.classList.add('es-track--drag');
-      track.setPointerCapture(e.pointerId);
-      updateTrack(track, getPercentage(e.clientX));
-    });
-
-    track.addEventListener('pointermove', (e) => {
-      if (!isDragging) return;
-      updateTrack(track, getPercentage(e.clientX));
-    });
-
-    const endDrag = (e) => {
-      if (!isDragging) return;
-      isDragging = false;
-      track.classList.remove('es-track--drag');
-      try { track.releasePointerCapture(e.pointerId); } catch (_) {}
-    };
-
-    track.addEventListener('pointerup', endDrag);
-    track.addEventListener('pointercancel', endDrag);
-
-    // Keyboard support
-    track.addEventListener('keydown', (e) => {
-      let current = parseInt(track.getAttribute('aria-valuenow') || '90', 10);
-      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        updateTrack(track, current + 2);
-      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
-        e.preventDefault();
-        updateTrack(track, current - 2);
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        updateTrack(track, 10);
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        updateTrack(track, 100);
-      }
-    });
-  });
-
-  // Reset to verified values button
-  const resetBtn = document.getElementById('esResetBtn');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-      container.querySelectorAll('.es-track').forEach(track => {
-        track.classList.remove('es-track--drag');
-        const defaultVal = parseInt(track.dataset.default || '90', 10);
-        const defaultLevel = track.dataset.level || 'Expert';
-
-        const fill = track.querySelector('.es-fill');
-        const thumb = track.querySelector('.es-thumb');
-        const row = track.closest('.es-row');
-        const label = row ? row.querySelector('.es-label') : null;
-
-        track.setAttribute('aria-valuenow', defaultVal);
-        if (fill) fill.style.width = `${defaultVal}%`;
-        if (thumb) thumb.style.left = `${defaultVal}%`;
-        if (label) label.textContent = defaultLevel;
-      });
-    });
-  }
-
-  // Smooth entrance animation triggered on scroll reveal
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {

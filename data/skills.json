@@ -31,8 +31,8 @@
       "skills": [
         { "name": "Snowflake Cortex AI & Dynamic Tables", "level": "Expert", "value": 95 },
         { "name": "AWS (Bedrock, SageMaker, S3, EC2)", "level": "Expert", "value": 92 },
-        { "name": "Apache Kafka & Event Streams", "level": "Expert", "value": 90 },
-        { "name": "Docker & Kubernetes (K8s Microservices)", "level": "Expert", "value": 91 },
+        { "name": "Apache Kafka & Event Streams", "level": "Proficient", "value": 87 },
+        { "name": "Docker & Kubernetes (K8s Microservices)", "level": "Proficient", "value": 88 },
         { "name": "FastAPI & RESTful APIs", "level": "Expert", "value": 96 }
       ]
     }
