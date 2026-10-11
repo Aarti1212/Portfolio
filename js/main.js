@@ -4,7 +4,7 @@
 
 import { initTheme } from './theme.js';
 import { initHeroCanvas } from './canvas-ai.js';
-import { loadJSON, renderProfile, renderExperience, renderProjects, renderSkills, renderWriting, renderEducation } from './render.js';
+import { loadJSON, renderProfile, renderExperience, renderProjects, renderSkills, renderWriting, renderEducation, renderHobbies } from './render.js';
 import { initProjectFilters } from './filters.js';
 import { initProjectModal } from './modal.js';
 import { initCommandPalette } from './palette.js';
@@ -189,14 +189,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   initScrollSpy();
 
   // Load all JSON data in parallel
-  const [profile, experience, projects, skills, education, certifications, writing] = await Promise.all([
+  const [profile, experience, projects, skills, education, certifications, writing, hobbies] = await Promise.all([
     loadJSON('data/profile.json'),
     loadJSON('data/experience.json'),
     loadJSON('data/projects.json'),
     loadJSON('data/skills.json'),
     loadJSON('data/education.json'),
     loadJSON('data/certifications.json'),
-    loadJSON('data/writing.json')
+    loadJSON('data/writing.json'),
+    loadJSON('data/hobbies.json')
   ]);
 
   // Render components
@@ -206,6 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (skills) renderSkills(skills);
   if (writing) renderWriting(writing);
   if (education && certifications) renderEducation(education, certifications);
+  if (hobbies) renderHobbies(hobbies);
 
   // Initialize Interactive systems
   if (projects) {

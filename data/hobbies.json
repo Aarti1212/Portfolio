@@ -1,0 +1,86 @@
+{
+  "languages": [
+    {
+      "id": "lang-turkish",
+      "name": "Turkish",
+      "native": "Türkçe",
+      "flag": "🇹🇷",
+      "level": "Conversational Learner",
+      "status": "Active Study",
+      "description": "Fascinated by Turkish culture, music, and cuisine. Actively practicing conversational dialogue, Turkish vocabulary, and grammar."
+    },
+    {
+      "id": "lang-korean",
+      "name": "Korean",
+      "native": "한국어",
+      "flag": "🇰🇷",
+      "level": "Elementary Explorer",
+      "status": "Active Study",
+      "description": "Studying Hangul and everyday conversational phrases. Inspired by Korean storytelling, cinema, and rich culinary culture."
+    },
+    {
+      "id": "lang-italian",
+      "name": "Italian",
+      "native": "Italiano",
+      "flag": "🇮🇹",
+      "level": "Elementary Explorer",
+      "status": "Active Study",
+      "description": "Learning Italian language fundamentals alongside exploring regional Italian gastronomy, espresso craft, and artisanal pasta traditions."
+    },
+    {
+      "id": "lang-english",
+      "name": "English",
+      "native": "English",
+      "flag": "🇺🇸",
+      "level": "Full Professional",
+      "status": "Fluent",
+      "description": "Primary working language for software and AI engineering, research publications, technical documentation, and team leadership."
+    }
+  ],
+  "culinary": [
+    {
+      "id": "dish-1",
+      "title": "Artisanal Handmade Pasta & Emulsions",
+      "cuisine": "Italian",
+      "badge": "Handmade Craft",
+      "description": "Rolling fresh egg pasta dough from scratch (tagliatelle, stuffed ravioli), slow-cooking rich ragùs, and perfecting classic emulsions like cacio e pepe and carbonara.",
+      "image": "assets/images/cooking-pasta.svg",
+      "highlights": ["Fresh 00 flour & semolina", "Silky pasta emulsions", "Herbed ricotta fillings"]
+    },
+    {
+      "id": "dish-2",
+      "title": "Aegean & Turkish Mezze Spreads",
+      "cuisine": "Turkish & Mediterranean",
+      "badge": "Flavor Profiles",
+      "description": "Crafting rich, colorful table spreads: shakshuka, Turkish breakfast spreads (kahvaltı), fire-roasted smoky eggplant dip (köz patlıcan), and freshly baked warm flatbreads.",
+      "image": "assets/images/cooking-mediterranean.svg",
+      "highlights": ["Sumac & Aleppo pepper", "Fire-roasted eggplant", "Fresh labneh & olive oil"]
+    },
+    {
+      "id": "dish-3",
+      "title": "Korean Comfort Bowls & Warm Stews",
+      "cuisine": "Korean",
+      "badge": "Umami Balance",
+      "description": "Balancing complex fermented savory, spicy, and sweet notes in traditional bibimbap, hearty kimchi-jjigae, scallion pancakes (pajeon), and glazed sesame tofu.",
+      "image": "assets/images/cooking-korean.svg",
+      "highlights": ["Fermented gochujang & doenjang", "Toasted sesame aromatics", "Sizzling dolsot texture"]
+    }
+  ],
+  "otherInterests": [
+    {
+      "icon": "☕",
+      "title": "Specialty Coffee Craft",
+      "description": "Dialing in light-roast single origins with V60 pour-overs, temperature profiling, and dialing in espresso extraction ratios."
+    },
+    {
+      "icon": "📸",
+      "title": "Travel & Street Photography",
+      "description": "Capturing architectural geometry, bustling local open-air markets, and everyday street life during travels."
+    },
+    {
+      "icon": "📚",
+      "title": "Cognitive Science & Linguistics",
+      "description": "Reading about language acquisition patterns, cognitive neurobiology, and how biological and artificial neural networks process structure."
+    }
+  ]
+}

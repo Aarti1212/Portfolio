@@ -139,10 +139,19 @@ export function renderExperience(experience) {
           <span class="timeline-company">${escapeHtml(exp.company)}</span>
           <span class="timeline-loc">• ${escapeHtml(exp.location)}</span>
         </div>
-        <p class="timeline-summary">${escapeHtml(exp.summary)}</p>
-        <ul class="timeline-bullets">
-          ${exp.highlights.map(h => `<li class="timeline-bullet">${escapeHtml(h)}</li>`).join('')}
-        </ul>
+        ${exp.headline ? `<h4 class="timeline-headline">“${escapeHtml(exp.headline)}”</h4>` : ''}
+        ${exp.summary ? `<p class="timeline-summary">${escapeHtml(exp.summary)}</p>` : ''}
+        ${exp.highlights && exp.highlights.length ? `
+          <ul class="timeline-bullets">
+            ${exp.highlights.map(h => `<li class="timeline-bullet">${escapeHtml(h)}</li>`).join('')}
+          </ul>
+        ` : ''}
+        ${exp.outcome ? `
+          <div class="timeline-outcome">
+            <span class="timeline-outcome-badge">Outcome</span>
+            <span class="timeline-outcome-text">${escapeHtml(exp.outcome)}</span>
+          </div>
+        ` : ''}
         <div class="tech-tag-group">
           ${exp.technologies.map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
         </div>
@@ -189,30 +198,44 @@ export function renderProjects(projects) {
 }
 
 // --------------------------------------------------------------------------
-// Render Skills & Concept Explainers
+// Render Skills (Interactive Scroll/Slider Visual) & Concept Explainers
 // --------------------------------------------------------------------------
 export function renderSkills(skillsData) {
   if (!skillsData) return;
 
-  // Categories & Skills
-  const skillsContainer = document.getElementById('skillsCategoryGrid');
-  if (skillsContainer && skillsData.categories) {
-    skillsContainer.innerHTML = skillsData.categories.map(cat => `
-      <div class="skill-category-card reveal-on-scroll">
-        <h3 class="skill-cat-title">${escapeHtml(cat.name)}</h3>
-        <p class="skill-cat-desc">${escapeHtml(cat.description)}</p>
-        <div class="skill-items-list">
-          ${cat.skills.map(s => `
-            <div class="skill-row">
-              <div class="skill-name-wrap">
-                <span class="skill-name">${escapeHtml(s.name)}</span>
-              </div>
-              <span class="skill-level-pill level-${s.level}">${escapeHtml(s.level)}</span>
-            </div>
-          `).join('')}
+  // Render Top Skills with the Scroll/Slider Visual
+  const sliderContainer = document.getElementById('skillsSliderContainer') || document.getElementById('skillsCategoryGrid');
+  if (sliderContainer && skillsData.topSkills) {
+    sliderContainer.innerHTML = skillsData.topSkills.map(group => `
+      <div class="es-group ${escapeHtml(group.class || '')}">
+        <div class="es-heading">
+          <span class="es-dot"></span>
+          <span>${escapeHtml(group.category)}</span>
         </div>
+        ${group.skills.map(s => {
+          const defaultVal = typeof s.value === 'number' ? s.value : (s.level === 'Expert' ? 95 : 85);
+          return `
+            <div class="es-row">
+              <div class="es-name">${escapeHtml(s.name)}</div>
+              <div class="es-track" tabindex="0" role="slider" aria-valuenow="${defaultVal}" aria-valuemin="10" aria-valuemax="100" aria-label="${escapeHtml(s.name)} proficiency" data-default="${defaultVal}" data-level="${escapeHtml(s.level)}">
+                <div class="es-bar"></div>
+                <div class="es-fill" style="width: 0%;"></div>
+                <div class="es-thumb" style="left: 0%;"></div>
+              </div>
+              <div class="es-label">${escapeHtml(s.level)}</div>
+            </div>
+          `;
+        }).join('')}
       </div>
-    `).join('');
+    `).join('') + `
+      <div class="es-footer">
+        <span>Interactive proficiency visual • Drag or click sliders to test</span>
+        <button type="button" id="esResetBtn">Reset to verified</button>
+      </div>
+    `;
+
+    // Initialize slider interactivity and scroll-triggered animations
+    initSkillsSlider(sliderContainer);
   }
 
   // Concept Explainers
@@ -245,6 +268,135 @@ export function renderSkills(skillsData) {
           toggle();
         }
       });
+    });
+  }
+}
+
+// Interactive helper for .es slider visual
+function initSkillsSlider(container) {
+  if (!container) return;
+
+  function updateTrack(track, pct) {
+    const clamped = Math.min(100, Math.max(10, Math.round(pct)));
+    track.setAttribute('aria-valuenow', clamped);
+
+    const fill = track.querySelector('.es-fill');
+    const thumb = track.querySelector('.es-thumb');
+    const row = track.closest('.es-row');
+    const label = row ? row.querySelector('.es-label') : null;
+
+    if (fill) fill.style.width = `${clamped}%`;
+    if (thumb) thumb.style.left = `${clamped}%`;
+
+    if (label) {
+      if (clamped >= 90) {
+        label.textContent = 'Expert';
+      } else if (clamped >= 75) {
+        label.textContent = 'Proficient';
+      } else {
+        label.textContent = 'Learning';
+      }
+    }
+  }
+
+  container.querySelectorAll('.es-track').forEach(track => {
+    let isDragging = false;
+
+    function getPercentage(clientX) {
+      const rect = track.getBoundingClientRect();
+      const pos = clientX - rect.left;
+      return (pos / rect.width) * 100;
+    }
+
+    track.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      track.classList.add('es-track--drag');
+      track.setPointerCapture(e.pointerId);
+      updateTrack(track, getPercentage(e.clientX));
+    });
+
+    track.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      updateTrack(track, getPercentage(e.clientX));
+    });
+
+    const endDrag = (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('es-track--drag');
+      try { track.releasePointerCapture(e.pointerId); } catch (_) {}
+    };
+
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+
+    // Keyboard support
+    track.addEventListener('keydown', (e) => {
+      let current = parseInt(track.getAttribute('aria-valuenow') || '90', 10);
+      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        updateTrack(track, current + 2);
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        updateTrack(track, current - 2);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        updateTrack(track, 10);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        updateTrack(track, 100);
+      }
+    });
+  });
+
+  // Reset to verified values button
+  const resetBtn = document.getElementById('esResetBtn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      container.querySelectorAll('.es-track').forEach(track => {
+        track.classList.remove('es-track--drag');
+        const defaultVal = parseInt(track.dataset.default || '90', 10);
+        const defaultLevel = track.dataset.level || 'Expert';
+
+        const fill = track.querySelector('.es-fill');
+        const thumb = track.querySelector('.es-thumb');
+        const row = track.closest('.es-row');
+        const label = row ? row.querySelector('.es-label') : null;
+
+        track.setAttribute('aria-valuenow', defaultVal);
+        if (fill) fill.style.width = `${defaultVal}%`;
+        if (thumb) thumb.style.left = `${defaultVal}%`;
+        if (label) label.textContent = defaultLevel;
+      });
+    });
+  }
+
+  // Smooth entrance animation triggered on scroll reveal
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          container.querySelectorAll('.es-track').forEach((track, idx) => {
+            const defaultVal = track.dataset.default || '90';
+            setTimeout(() => {
+              const fill = track.querySelector('.es-fill');
+              const thumb = track.querySelector('.es-thumb');
+              if (fill) fill.style.width = `${defaultVal}%`;
+              if (thumb) thumb.style.left = `${defaultVal}%`;
+            }, idx * 40);
+          });
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(container);
+  } else {
+    container.querySelectorAll('.es-track').forEach(track => {
+      const defaultVal = track.dataset.default || '90';
+      const fill = track.querySelector('.es-fill');
+      const thumb = track.querySelector('.es-thumb');
+      if (fill) fill.style.width = `${defaultVal}%`;
+      if (thumb) thumb.style.left = `${defaultVal}%`;
     });
   }
 }
@@ -324,3 +476,62 @@ export function renderEducation(eduData, certData) {
     `).join('');
   }
 }
+
+// --------------------------------------------------------------------------
+// Render Hobbies, Languages & Culinary Arts
+// --------------------------------------------------------------------------
+export function renderHobbies(hobbiesData) {
+  if (!hobbiesData) return;
+
+  // Render Languages
+  const langContainer = document.getElementById('languagesGrid');
+  if (langContainer && hobbiesData.languages) {
+    langContainer.innerHTML = hobbiesData.languages.map(lang => `
+      <div class="language-card reveal-on-scroll">
+        <div class="language-card-top">
+          <span class="language-flag">${escapeHtml(lang.flag)}</span>
+          <span class="language-level-badge">${escapeHtml(lang.level)}</span>
+        </div>
+        <div class="language-name-wrap">
+          <span class="language-name-en">${escapeHtml(lang.name)}</span>
+          <span class="language-name-native">${escapeHtml(lang.native)}</span>
+        </div>
+        <p class="language-desc">${escapeHtml(lang.description)}</p>
+      </div>
+    `).join('');
+  }
+
+  // Render Culinary & Cooking
+  const culinaryContainer = document.getElementById('culinaryGrid');
+  if (culinaryContainer && hobbiesData.culinary) {
+    culinaryContainer.innerHTML = hobbiesData.culinary.map(dish => `
+      <div class="culinary-card reveal-on-scroll">
+        <div class="culinary-img-wrap">
+          <img src="${dish.image}" alt="${escapeHtml(dish.title)}" class="culinary-img" loading="lazy" />
+          <span class="culinary-badge">${escapeHtml(dish.badge)}</span>
+        </div>
+        <div class="culinary-content">
+          <span class="culinary-cuisine-tag">${escapeHtml(dish.cuisine)}</span>
+          <h4 class="culinary-title">${escapeHtml(dish.title)}</h4>
+          <p class="culinary-desc">${escapeHtml(dish.description)}</p>
+          <div class="culinary-highlights">
+            ${dish.highlights.map(h => `<span class="culinary-highlight-chip">${escapeHtml(h)}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Render Other Interests
+  const interestsContainer = document.getElementById('interestsGrid');
+  if (interestsContainer && hobbiesData.otherInterests) {
+    interestsContainer.innerHTML = hobbiesData.otherInterests.map(item => `
+      <div class="interest-card reveal-on-scroll">
+        <span class="interest-icon">${escapeHtml(item.icon)}</span>
+        <h4 class="interest-title">${escapeHtml(item.title)}</h4>
+        <p class="interest-desc">${escapeHtml(item.description)}</p>
+      </div>
+    `).join('');
+  }
+}
+

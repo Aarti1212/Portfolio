@@ -120,8 +120,9 @@
         <a href="#experience" class="nav-link">Experience</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#skills" class="nav-link">Skills</a>
-        <a href="#writing" class="nav-link">Writing</a>
+        <a href="#blog" class="nav-link">Blog Posts</a>
         <a href="#education" class="nav-link">Education</a>
+        <a href="#hobbies" class="nav-link">Hobbies</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
@@ -151,9 +152,10 @@
     <a href="#about" class="mobile-nav-link">About</a>
     <a href="#experience" class="mobile-nav-link">Experience</a>
     <a href="#projects" class="mobile-nav-link">Projects</a>
-    <a href="#skills" class="mobile-nav-link">Skills & Knowledge</a>
-    <a href="#writing" class="mobile-nav-link">Writing & Notes</a>
+    <a href="#skills" class="mobile-nav-link">Skills</a>
+    <a href="#blog" class="mobile-nav-link">Blog Posts</a>
     <a href="#education" class="mobile-nav-link">Education & Certs</a>
+    <a href="#hobbies" class="mobile-nav-link">Hobbies</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
     <div style="margin-top: var(--space-4);">
       <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">Download Resume PDF</a>
@@ -298,12 +300,14 @@
       <div class="container">
         <div class="section-header reveal-on-scroll">
           <span class="section-tag">Technical Depth</span>
-          <h2 class="section-title">Skills & Knowledge</h2>
-          <p class="section-subtitle">Organized by specialization with visual proficiency levels and direct project mappings.</p>
+          <h2 class="section-title">Core Technical Expertise</h2>
+          <p class="section-subtitle">Top technical capabilities across Generative AI, machine learning systems, and cloud infrastructure with interactive proficiency levels.</p>
         </div>
 
-        <div class="skills-category-grid" id="skillsCategoryGrid">
-          <!-- Populated by JS -->
+        <div class="es-card reveal-on-scroll">
+          <div id="skillsSliderContainer" class="es" aria-label="Core Engineering Skills">
+            <!-- Populated dynamically by renderSkills in js/render.js -->
+          </div>
         </div>
 
         <!-- Concepts I Can Explain -->
@@ -320,12 +324,12 @@
       </div>
     </section>
 
-    <!-- 6. Writing & Learning Section -->
-    <section id="writing" class="section" aria-label="Articles and Notes">
+    <!-- 6. Blog Posts & Learning Section -->
+    <section id="blog" class="section" aria-label="Blog Posts and Notes">
       <div class="container">
         <div class="section-header reveal-on-scroll">
-          <span class="section-tag">Knowledge Sharing</span>
-          <h2 class="section-title">Writing & Engineering Notes</h2>
+          <span class="section-tag">Insights & Articles</span>
+          <h2 class="section-title">Blog Posts & Engineering Notes</h2>
           <p class="section-subtitle">Deep dives on GenAI architectures, low-latency streaming, and daily technical learnings.</p>
         </div>
 
@@ -372,7 +376,57 @@
       </div>
     </section>
 
-    <!-- 8. Contact Section -->
+    <!-- 8. Hobbies & Passions Section -->
+    <section id="hobbies" class="section" aria-label="Hobbies, Languages and Passions">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-tag">Life Beyond Code</span>
+          <h2 class="section-title">Languages, Culinary Arts & Hobbies</h2>
+          <p class="section-subtitle">Polyglot language learning, artisanal cooking experiments, and creative interests that balance the mind.</p>
+        </div>
+
+        <!-- Languages Subsection -->
+        <div class="hobbies-subsection reveal-on-scroll">
+          <div class="hobbies-subhead">
+            <h3 class="hobbies-subtitle">
+              <span class="subhead-icon">🗣️</span> Languages I Speak & Learn
+            </h3>
+            <span class="subhead-meta">Turkish, Korean, Italian & Multilingual Journeys</span>
+          </div>
+          <div class="languages-grid" id="languagesGrid">
+            <!-- Populated dynamically by render.js from data/hobbies.json -->
+          </div>
+        </div>
+
+        <!-- Culinary & Cooking Subsection -->
+        <div class="hobbies-subsection reveal-on-scroll" style="margin-top: var(--space-12);">
+          <div class="hobbies-subhead">
+            <h3 class="hobbies-subtitle">
+              <span class="subhead-icon">🍳</span> Culinary Explorations & Cooking
+            </h3>
+            <span class="subhead-meta">Handmade pasta craft, Aegean mezes & comfort food</span>
+          </div>
+          <div class="culinary-grid" id="culinaryGrid">
+            <!-- Populated dynamically by render.js from data/hobbies.json -->
+          </div>
+        </div>
+
+        <!-- Other Creative Passions -->
+        <div class="hobbies-subsection reveal-on-scroll" style="margin-top: var(--space-12);">
+          <div class="hobbies-subhead">
+            <h3 class="hobbies-subtitle">
+              <span class="subhead-icon">✨</span> Other Interests & Passions
+            </h3>
+            <span class="subhead-meta">Daily rituals & creative exploration</span>
+          </div>
+          <div class="interests-grid" id="interestsGrid">
+            <!-- Populated dynamically by render.js from data/hobbies.json -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Contact Section -->
     <section id="contact" class="section" aria-label="Contact Information">
       <div class="container">
         <div class="section-header reveal-on-scroll">

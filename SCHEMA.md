@@ -68,16 +68,17 @@ Each object in the array represents a project card and its full-screen interacti
 
 ---
 
-## 3. `data/skills.json` — Categorized Skills & Concept Explainers
+## 3. `data/skills.json` — Core Technical Expertise (Interactive Slider Visual) & Concepts
 
 ```json
 {
-  "categories": [
+  "topSkills": [
     {
-      "name": "Category Name",
-      "description": "Short category description",
+      "category": "Generative AI, Agents & LLMs",
+      "class": "es-genai",
+      "description": "Category description",
       "skills": [
-        { "name": "Skill Name", "level": "Expert | Proficient | Learning", "relatedProjects": ["project-id-1"] }
+        { "name": "LangChain & LangGraph", "level": "Expert", "value": 96 }
       ]
     }
   ],
@@ -102,7 +103,49 @@ Each object in the array represents a project card and its full-screen interacti
 - `currentFocus`: `{ "building": "...", "exploring": "...", "reading": "..." }`
 - `socials`: Links to GitHub, LinkedIn, Hugging Face, etc.
 - `config`:
-  - `showWritingSection`: `true | false`
+  - `showBlogSection`: `true | false`
+  - `showHobbiesSection`: `true | false`
   - `showAssistantTeaser`: `true | false`
   - `showConceptsSection`: `true | false`
   - `contactFormEndpoint`: `"https://formspree.io/f/your_form_id_here"`
+
+---
+
+## 5. `data/hobbies.json` — Languages, Cooking & Creative Hobbies
+
+Easily add language skills (e.g. Turkish, Korean, Italian), culinary dishes/cooking pictures, and creative passions.
+
+### Template:
+```json
+{
+  "languages": [
+    {
+      "id": "lang-slug",
+      "name": "Language Name",
+      "native": "Native Script",
+      "flag": "🇹🇷",
+      "level": "Conversational Learner | Elementary | Fluent",
+      "description": "Short note about your learning journey or connection to the culture."
+    }
+  ],
+  "culinary": [
+    {
+      "id": "dish-slug",
+      "title": "Dish Name",
+      "cuisine": "Cuisine Type",
+      "badge": "Handmade | Comfort Food",
+      "description": "Description of the recipe, techniques, or ingredients used.",
+      "image": "assets/images/your-cooking-photo.jpg",
+      "highlights": ["Semolina dough", "Slow simmer", "Fresh herbs"]
+    }
+  ],
+  "otherInterests": [
+    {
+      "icon": "☕",
+      "title": "Interest Title",
+      "description": "Brief description of the hobby."
+    }
+  ]
+}
+```
+

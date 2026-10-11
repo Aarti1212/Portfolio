@@ -1,41 +1,43 @@
 [
   {
     "id": "exp-pnc",
-    "role": "AI / ML Engineer",
+    "role": "AI/ML Engineer",
     "company": "PNC Bank",
     "companyUrl": "https://www.pnc.com",
     "location": "Phoenix, AZ",
     "period": "Jan 2026 – Aug 2026",
     "type": "Full-time",
-    "summary": "Engineered an enterprise AI-powered credit risk and decisioning platform integrating real-time ML risk scoring with LangGraph agentic orchestration and LLM-generated explainable underwriting justifications.",
+    "headline": "Making credit decisions fast, and explainable enough to defend to a regulator",
+    "summary": "Underwriters had risk scores, but a score alone isn't a decision. In banking, every approval or denial has to be justified in plain language and survive an audit. The bottleneck wasn't prediction. It was explanation.",
     "highlights": [
-      "Architected an AI-powered credit risk decisioning platform combining real-time streaming financial data with predictive ML models and LLM reasoning engines, automating loan approvals while delivering clear, audit-compliant natural language explanations for human underwriters.",
-      "Engineered production-grade LangChain retrieval and orchestration pipelines with custom tool bindings, function calling, and structured output parsing across heterogeneous financial data sources, drastically reducing hallucinations via grounded context retrieval and tracking groundedness scores and tool-call success rates.",
-      "Designed fault-tolerant agentic workflows in LangGraph featuring memory persistence, SQLite checkpointing, and dynamic retry logic to execute complex, multi-step loan risk evaluations capable of pausing for compliance review and resuming seamlessly.",
-      "Built an automated LLM evaluation suite (BERTScore, custom rubric-based evaluators, hallucination detectors) integrated into MLflow dashboards for real-time model monitoring, drift detection, and automated alerting on quality degradation.",
-      "Developed high-throughput FastAPI microservices for real-time credit scoring, AI decisioning, and agent orchestration, tracking p95 latency (<120ms), system throughput, and error rates in enterprise production.",
-      "Constructed interactive stakeholder dashboards in ReactJS and TypeScript to monitor model drift, decision accuracy, underwriting throughput, and operational KPIs, giving executives and risk officers continuous visibility.",
-      "Maintained strict alignment with Federal banking regulations, Model Risk Governance (MRG), explainability standards (SHAP/LLM rationale), and enterprise zero-trust security policies."
+      "Built an enterprise credit decisioning platform pairing real-time ML risk scoring with an LLM reasoning layer: streaming models score financial data while the LLM generates written, plain-language justifications an underwriter can read, challenge, and sign off on.",
+      "Grounded the LLM in retrieved context from actual financial sources and tracked groundedness scores and tool-call success rates in real time, so hallucinations showed up as metrics rather than surprises.",
+      "Led the design of the LangGraph workflow running each evaluation, architected with state checkpointing and retry logic to pause for human compliance review and resume exactly where it left off.",
+      "Led the evaluation suite and built an adversarial benchmark dataset from real-time data and edge-case interactions; integrated BERTScore, rubric-based evaluators, and hallucination detectors feeding MLflow dashboards with automated alerts before quality degradation reached downstream users.",
+      "Engineered scoring services in FastAPI operating under 120ms p95 latency, and built ReactJS/TypeScript dashboards providing executives and risk officers a live view of drift, accuracy, and underwriting throughput."
     ],
-    "technologies": ["Python", "LangChain", "LangGraph", "FastAPI", "MLflow", "ReactJS", "TypeScript", "Docker", "PostgreSQL", "BERTScore", "AWS Bedrock"]
+    "outcome": "Automated loan approvals with audit-ready explanations, built to meet federal banking regulations, Model Risk Governance, and zero-trust security requirements.",
+    "technologies": ["Python", "LangChain", "LangGraph", "FastAPI", "MLflow", "ReactJS", "TypeScript", "Docker", "PostgreSQL", "AWS Bedrock"]
   },
   {
     "id": "exp-cdreams",
-    "role": "AI / ML Engineer",
+    "role": "AI/ML Engineer",
     "company": "CDreams Foundation",
     "companyUrl": "https://example.com/cdreams",
     "location": "Phoenix, AZ",
     "period": "Mar 2025 – Jan 2026",
     "type": "Full-time",
-    "summary": "Spearheaded the development of an enterprise RAG knowledge assistant powered by Claude 3.5 Sonnet, LlamaIndex, and Pinecone to automate complex document analysis and contextual Q&A.",
+    "headline": "Turning thousands of policy documents into an assistant people actually trust",
+    "summary": "Answers to everyday HR and policy questions were buried in thousands of dense manuals. People searched by hand or asked support staff the same questions over and over.",
     "highlights": [
-      "Developed and deployed an enterprise knowledge assistant leveraging Anthropic Claude 3.5 Sonnet to automate policy analysis, complex document Q&A, and support workflows, tracking deflection rate, answer accuracy, user CSAT, and token cost per query.",
-      "Built end-to-end Retrieval-Augmented Generation (RAG) pipelines using LangChain, LlamaIndex, and Pinecone vector database over thousands of internal policy documents, HR manuals, and business guides, optimizing Recall@k, context faithfulness, and hallucination reduction.",
-      "Designed intelligent document ingestion pipelines incorporating hierarchical chunking, semantic boundary splitting, metadata tagging, and vector indexing to enhance retrieval precision on dense technical manuals.",
-      "Implemented advanced prompt engineering, dynamic few-shot prompting, and prompt optimization strategies to ensure high reasoning fidelity, domain-specific compliance, and deterministic output schemas.",
-      "Performed comprehensive quantitative data analysis with Python (Pandas/NumPy) and SQL to audit pipeline retrieval logs, identify information gaps, and deliver actionable data integrity reports to stakeholders."
+      "Spearheaded the build of an enterprise knowledge assistant on Claude 3.5 Sonnet, with LlamaIndex and Pinecone handling retrieval over dense policy manuals.",
+      "Engineered the ingestion layer with hierarchical chunking, semantic boundary splitting, and metadata tagging, ensuring retrieval returned the exact section of a technical manual instead of a vaguely related page.",
+      "Tuned prompts using dynamic few-shot examples and structured outputs, guaranteeing answers remained accurate, compliant, and consistent.",
+      "Treated the assistant as a product rather than a demo: continuously tracked deflection rate, answer accuracy, CSAT, and cost per query, while optimizing Recall@k and context faithfulness.",
+      "Audited retrieval logs with Python, Pandas, and SQL to identify knowledge base coverage gaps and reported them to stakeholders, converting assistant failures into an actionable backlog for improving documentation."
     ],
-    "technologies": ["Python", "Claude 3.5 Sonnet", "LangChain", "LlamaIndex", "Pinecone", "FastAPI", "Prompt Engineering", "SQL", "Pandas", "Docker"]
+    "outcome": "A working assistant that automated policy analysis and document Q&A, with measurable accuracy and cost.",
+    "technologies": ["Python", "Claude 3.5 Sonnet", "LangChain", "LlamaIndex", "Pinecone", "FastAPI", "SQL", "Pandas", "Docker"]
   },
   {
     "id": "exp-amex",
@@ -45,18 +47,19 @@
     "location": "Phoenix, AZ",
     "period": "Oct 2024 – Mar 2025",
     "type": "Full-time",
-    "summary": "Built high-scale GenAI search pipelines serving 60K+ daily queries across 4 global markets, boosting mobile app CTR by 15% and digital containment by 3%.",
+    "headline": "Fixing search for 60,000+ daily queries across four countries",
+    "summary": "In a mobile app, a failed search is a lost customer, and too many searches ended in empty results. Customers typed a merchant name, an amount, or a vague intent, and the search couldn't make sense of it.",
     "highlights": [
-      "Built and scaled GenAI-powered search pipelines combining semantic dense vector retrieval, fuzzy matching, and keyword-based search serving 60,000+ daily queries across US, UK, Australia, and Japan markets, driving a 15% increase in click-through rate (CTR) and a 3% boost in digital self-service containment.",
-      "Benchmarked and deployed a rigorous search evaluation framework utilizing 1,200 GPT-labeled test queries; integrated human-in-the-loop validation to fine-tune retrieval thresholds and dramatically enhance precision.",
-      "Engineered an event-driven data streaming architecture with Apache Kafka to facilitate low-latency communication and continuous query event processing between distributed search microservices.",
-      "Developed a high-precision Named Entity Recognition (NER) pipeline (combining spaCy, NLTK, and regex) to extract transaction amounts, merchant names, dates, and intent, resolving 3,000+ previously unhandled empty queries per month.",
-      "Architected the NER microservices layer using Docker and RESTful APIs, ensuring decoupled scaling and sub-35ms response times across global endpoints.",
-      "Enhanced American Express mobile app search relevance by analyzing user interaction logs and using LLMs to synthesize dynamic FAQ answers and contextual cards, directly deflecting live chat escalation volume.",
-      "Contributed to building the production Typeahead API for the AMEX mobile app, reliably processing 45,000+ autocomplete requests daily with low latency.",
-      "Built an internal technical documentation portal in Docusaurus using ReactJS and TypeScript, streamlining engineering onboarding and establishing standard API guidelines."
+      "Scaled a hybrid search system combining semantic vector retrieval, fuzzy matching, and keyword search, serving 60,000+ daily queries across the US, UK, Australia, and Japan.",
+      "Proposed and engineered a Named Entity Recognition (NER) pipeline with spaCy, NLTK, and regex to extract amounts, merchants, dates, and intent from user inputs, deployed as a Dockerized microservice with sub-35ms response times.",
+      "Benchmarked retrieval against 1,200 GPT-labeled test queries and incorporated human-in-the-loop review to fine-tune retrieval thresholds.",
+      "Streamed query events between distributed microservices in real time using Apache Kafka.",
+      "Deployed LLMs to generate dynamic FAQ answers and contextual cards inside the mobile app, deflecting questions before escalating to live chat.",
+      "Contributed to shipping the production Typeahead API, handling 45,000+ daily autocomplete requests with low latency.",
+      "Launched an internal Docusaurus portal that established API standards and accelerated engineering onboarding."
     ],
-    "technologies": ["Python", "LangChain", "spaCy", "NLTK", "Kafka", "Tableau", "FastAPI", "Docker", "ReactJS", "TypeScript", "Docusaurus", "SQL"]
+    "outcome": "+15% click-through rate, +3% digital self-service containment, 3,000+ previously empty queries resolved every month, and 45,000+ daily autocomplete requests served.",
+    "technologies": ["Python", "LangChain", "spaCy", "NLTK", "Kafka", "FastAPI", "Docker", "ReactJS", "TypeScript", "Docusaurus", "SQL", "Tableau"]
   },
   {
     "id": "exp-zigzag",
@@ -66,13 +69,16 @@
     "location": "Irvine, CA",
     "period": "Jan 2024 – Jun 2024",
     "type": "Contract / Part-time",
-    "summary": "Applied NLP topic modeling and predictive machine learning models to analyze thousands of startup pitches and extract market intelligence for investment screening.",
+    "headline": "Finding the signal in thousands of startup pitches",
+    "summary": "Venture partners received far more startup ideas than anyone could read, and good ones were slipping through because screening was manual.",
     "highlights": [
-      "Applied BERTopic, Latent Dirichlet Allocation (LDA), and transformer-based NLP models to extract thematic market trends and clustering patterns from thousands of user-submitted startup ideas, accelerating early-stage thesis evaluation.",
-      "Developed a predictive investment scoring framework using gradient boosting models (XGBoost/LightGBM) to rank high-potential startup submissions, leading to a 2x higher portfolio investment conversion rate.",
-      "Automated executive KPI dashboards in Tableau and Power BI, providing venture partners with live visibility into startup category distribution, founder signals, and scoring metrics while reducing manual weekly reporting by 50%.",
-      "Collaborated closely with venture partners, product managers, and data analysts to establish rigorous data validation checks and QA protocols across unstructured submission data."
+      "Clustered thousands of startup submissions using BERTopic, LDA, and transformer models to surface emergent market themes, accelerating investment thesis formulation.",
+      "Built an investment scoring model using XGBoost and LightGBM to rank submissions by venture potential.",
+      "Presented quantitative findings and explainability insights to stakeholders, translating algorithmic predictions into actionable criteria partners trusted.",
+      "Automated firm-wide KPI dashboards in Tableau and Power BI, displaying live category distributions, founder signals, and scoring metrics.",
+      "Established data validation checks and QA protocols alongside partners, product managers, and analysts to reliably process messy, unstructured pitch data."
     ],
+    "outcome": "2x higher investment conversion rate and 50% less manual reporting.",
     "technologies": ["Python", "BERTopic", "LDA", "Transformers", "scikit-learn", "XGBoost", "Tableau", "Power BI", "SQL", "Pandas"]
   },
   {
@@ -83,14 +89,16 @@
     "location": "Pune, India",
     "period": "Mar 2021 – Apr 2023",
     "type": "Full-time",
-    "summary": "Architected distributed enterprise microservices, high-throughput financial ETL pipelines, and asynchronous message brokers processing large-scale ERP data.",
+    "headline": "Building the data backbone for financial systems that can't afford mistakes",
+    "summary": "Large volumes of financial data from ERP platforms had to be processed accurately and quickly. Slow batch jobs and silent data errors meant delays, and risk, in regulatory audits.",
     "highlights": [
-      "Developed Java and Python-based automation tools to extract, transform, and validate high-volume financial datasets from ERP platforms, cutting end-to-end processing time by 40% with zero data loss across regulatory audits.",
-      "Designed and implemented a scalable microservices architecture integrated with ActiveMQ message brokers for reliable asynchronous communication across enterprise business units.",
-      "Built automated eCommerce integration workflows using MuleSoft APIs and Jenkins CI/CD pipelines, automating testing suites and eliminating manual deployment friction.",
-      "Optimized complex SQL queries, index layouts, and database schemas in MySQL and PostgreSQL, coupled with Redis caching layers, cutting query execution times by 40% and accelerating downstream analytics.",
-      "Implemented comprehensive automated data validation, sanity checks, and error logging across ETL batch jobs to proactively detect schema anomalies and data drift."
+      "Built Java and Python automation pipelines to extract, transform, and validate financial data, cutting end-to-end processing time by 40% with zero data loss across regulatory audits.",
+      "Designed scalable microservices connected by ActiveMQ for reliable asynchronous messaging across enterprise business units.",
+      "Automated eCommerce integrations using MuleSoft and Jenkins CI/CD pipelines, removing manual deployment friction.",
+      "Optimized SQL queries, indexes, and schemas in MySQL and PostgreSQL alongside Redis caching, cutting query execution times by 40%.",
+      "Added automated validation, sanity checks, and error logging across ETL batch jobs, proactively catching schema anomalies and data drift."
     ],
+    "outcome": "Faster pipelines, 40% faster queries, and a reliability record that stood up to audits.",
     "technologies": ["Java", "Python", "SQL", "PostgreSQL", "MySQL", "Redis", "ActiveMQ", "MuleSoft", "Docker", "Jenkins", "Git"]
   }
 ]

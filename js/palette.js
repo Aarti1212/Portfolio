@@ -11,12 +11,13 @@ export function initCommandPalette(projects) {
   if (!overlay || !input || !resultsList) return;
 
   const defaultActions = [
-    { label: 'Jump to: Projects', icon: '⚡', action: () => scrollToSection('projects') },
+    { label: 'Jump to: About', icon: '👋', action: () => scrollToSection('about') },
     { label: 'Jump to: Experience', icon: '💼', action: () => scrollToSection('experience') },
+    { label: 'Jump to: Featured Projects', icon: '⚡', action: () => scrollToSection('projects') },
     { label: 'Jump to: Skills & Knowledge', icon: '🧠', action: () => scrollToSection('skills') },
-    { label: 'Jump to: Technical Concepts Explained', icon: '📚', action: () => scrollToSection('concepts') },
-    { label: 'Jump to: Writing & Notes', icon: '✍️', action: () => scrollToSection('writing') },
+    { label: 'Jump to: Blog Posts & Notes', icon: '📝', action: () => scrollToSection('blog') },
     { label: 'Jump to: Education & Certifications', icon: '🎓', action: () => scrollToSection('education') },
+    { label: 'Jump to: Hobbies & Languages', icon: '🍳', action: () => scrollToSection('hobbies') },
     { label: 'Jump to: Contact', icon: '📬', action: () => scrollToSection('contact') },
     { label: 'Action: Download Resume (PDF)', icon: '📄', action: () => window.open('assets/resume.pdf', '_blank') },
     { label: 'Action: Toggle Dark / Light Theme', icon: '🌗', action: () => document.getElementById('themeToggleBtn')?.click() },

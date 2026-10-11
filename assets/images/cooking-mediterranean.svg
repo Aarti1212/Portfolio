@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" fill="none">
+  <defs>
+    <linearGradient id="medBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1726" />
+      <stop offset="100%" stop-color="#060c14" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="oliveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#84cc16" />
+      <stop offset="100%" stop-color="#4d7c0f" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="340" rx="16" fill="url(#medBg)" />
+  <rect x="2" y="2" width="596" height="336" rx="14" stroke="#1e293b" stroke-width="1.5" />
+  <circle cx="300" cy="170" r="140" fill="url(#sunGlow)" />
+
+  <!-- Mezze Platters & Bowls -->
+  <!-- Center Main Shakshuka Skillet -->
+  <circle cx="300" cy="170" r="85" fill="#1e1b18" stroke="#78350f" stroke-width="2.5" />
+  <circle cx="300" cy="170" r="70" fill="#991b1b" opacity="0.85" />
+  <!-- Poached Eggs in Shakshuka -->
+  <circle cx="280" cy="155" r="18" fill="#fef08a" />
+  <circle cx="278" cy="153" r="11" fill="#f59e0b" />
+  <circle cx="320" cy="165" r="18" fill="#fef08a" />
+  <circle cx="318" cy="163" r="11" fill="#f59e0b" />
+  <circle cx="295" cy="190" r="16" fill="#fef08a" />
+  <circle cx="295" cy="190" r="9" fill="#f59e0b" />
+  <!-- Cilantro / Parsley Garnish -->
+  <circle cx="300" cy="165" r="3" fill="#15803d" />
+  <circle cx="285" cy="175" r="2.5" fill="#15803d" />
+  <circle cx="310" cy="180" r="3" fill="#15803d" />
+
+  <!-- Left Mezze Bowl: Hummus / Labneh with Olive Oil Swirl -->
+  <circle cx="150" cy="170" r="55" fill="#18181b" stroke="#0284c7" stroke-width="1.5" />
+  <circle cx="150" cy="170" r="44" fill="#fef3c7" opacity="0.9" />
+  <path d="M 130,170 Q 150,150 165,165 T 145,180" fill="none" stroke="url(#oliveGrad)" stroke-width="4" stroke-linecap="round" />
+  <circle cx="150" cy="170" r="4" fill="#b91c1c" />
+
+  <!-- Right Mezze Bowl: Roasted Eggplant / Köz Patlıcan -->
+  <circle cx="450" cy="170" r="55" fill="#18181b" stroke="#0d9488" stroke-width="1.5" />
+  <circle cx="450" cy="170" r="44" fill="#3f3f46" opacity="0.85" />
+  <path d="M 435,160 Q 455,150 465,165 T 440,180" fill="none" stroke="#eab308" stroke-width="3" stroke-linecap="round" />
+  <circle cx="450" cy="170" r="5" fill="#ef4444" />
+
+  <!-- Pomegranate Seeds Accent -->
+  <g fill="#be123c">
+    <circle cx="440" cy="155" r="3" />
+    <circle cx="460" cy="158" r="2.5" />
+    <circle cx="452" cy="185" r="3" />
+  </g>
+
+  <!-- Typography Labels -->
+  <text x="300" y="45" font-family="sans-serif" font-size="13" font-weight="700" fill="#38bdf8" letter-spacing="3" text-anchor="middle">MEDITERRANEAN & TURKISH MEZZE</text>
+  <text x="300" y="310" font-family="monospace" font-size="11" fill="#64748b" text-anchor="middle">Smoky Köz Patlıcan • Shakshuka • Sumac & Za'atar</text>
+</svg>

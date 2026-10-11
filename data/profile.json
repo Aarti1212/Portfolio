@@ -45,7 +45,9 @@
   "resumePath": "assets/resume.pdf",
   "avatar": "assets/images/avatar-placeholder.svg",
   "config": {
+    "showBlogSection": true,
     "showWritingSection": true,
+    "showHobbiesSection": true,
     "showAssistantTeaser": true,
     "showConceptsSection": true,
     "contactFormEndpoint": "https://formspree.io/f/your_form_id_here"

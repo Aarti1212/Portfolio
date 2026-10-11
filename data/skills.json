@@ -1,57 +1,39 @@
 {
-  "categories": [
+  "topSkills": [
     {
-      "name": "Generative AI, Agents & LLMs",
+      "category": "Generative AI, Agents & LLMs",
+      "class": "es-genai",
       "description": "Enterprise agent orchestration, RAG architectures, prompt engineering, and evaluation",
       "skills": [
-        { "name": "LangChain & LangGraph", "level": "Expert", "relatedProjects": ["agentic-doc-qa-mcp", "pnc-credit-risk-agentic-platform"] },
-        { "name": "Model Context Protocol (MCP)", "level": "Expert", "relatedProjects": ["agentic-doc-qa-mcp"] },
-        { "name": "CrewAI Multi-Agent Systems", "level": "Expert", "relatedProjects": ["multi-agent-content-crewai"] },
-        { "name": "RAG Architectures (Hybrid, LlamaIndex, Pinecone)", "level": "Expert", "relatedProjects": ["agentic-doc-qa-mcp", "amex-hybrid-search-engine"] },
-        { "name": "Claude 3.5 Sonnet, LLaMA 3 & GPT-4o", "level": "Expert", "relatedProjects": ["conversational-voice-assistant", "agentic-doc-qa-mcp"] },
-        { "name": "Real-Time Voice AI (LiveKit, ElevenLabs, VAD)", "level": "Expert", "relatedProjects": ["conversational-voice-assistant"] },
-        { "name": "Prompt Engineering & Guardrails", "level": "Expert", "relatedProjects": ["agentic-doc-qa-mcp", "snowflake-cortex-marketing-agent"] },
-        { "name": "LLM Evaluation (BERTScore, Ragas, MLflow)", "level": "Proficient", "relatedProjects": ["pnc-credit-risk-agentic-platform"] }
+        { "name": "LangChain & LangGraph", "level": "Expert", "value": 96 },
+        { "name": "Model Context Protocol (MCP)", "level": "Expert", "value": 95 },
+        { "name": "RAG Architectures (Hybrid, LlamaIndex, Pinecone)", "level": "Expert", "value": 96 },
+        { "name": "Claude 3.5 Sonnet, LLaMA 3 & GPT-4o", "level": "Expert", "value": 93 },
+        { "name": "Real-Time Voice AI (LiveKit, ElevenLabs, VAD)", "level": "Expert", "value": 92 }
       ]
     },
     {
-      "name": "Machine Learning, NLP & Data Science",
+      "category": "Machine Learning, NLP & Data Science",
+      "class": "es-ml",
       "description": "Deep learning, statistical modeling, information extraction, and topic modeling",
       "skills": [
-        { "name": "Python (Pandas, NumPy, AsyncIO)", "level": "Expert", "relatedProjects": ["agentic-doc-qa-mcp", "amex-hybrid-search-engine"] },
-        { "name": "NLP & Named Entity Recognition (spaCy, NLTK)", "level": "Expert", "relatedProjects": ["amex-hybrid-search-engine"] },
-        { "name": "PyTorch & TensorFlow", "level": "Proficient", "relatedProjects": ["pnc-credit-risk-agentic-platform"] },
-        { "name": "Topic Modeling (BERTopic, LDA)", "level": "Proficient", "relatedProjects": [] },
-        { "name": "scikit-learn & Gradient Boosting (XGBoost)", "level": "Expert", "relatedProjects": ["pnc-credit-risk-agentic-platform"] },
-        { "name": "R & Statistical Hypothesis Testing", "level": "Proficient", "relatedProjects": [] },
-        { "name": "Hugging Face Ecosystem & Transformers", "level": "Expert", "relatedProjects": ["multi-agent-content-crewai"] }
+        { "name": "Python (Pandas, NumPy, AsyncIO)", "level": "Expert", "value": 98 },
+        { "name": "NLP & Named Entity Recognition (spaCy, NLTK)", "level": "Expert", "value": 94 },
+        { "name": "scikit-learn & Gradient Boosting (XGBoost)", "level": "Expert", "value": 93 },
+        { "name": "Hugging Face Ecosystem & Transformers", "level": "Expert", "value": 91 },
+        { "name": "Topic Modeling (BERTopic, LDA)", "level": "Proficient", "value": 86 }
       ]
     },
     {
-      "name": "Cloud, Big Data & MLOps Infrastructure",
+      "category": "Cloud, Big Data & MLOps Infrastructure",
+      "class": "es-infra",
       "description": "Cloud ML platforms, in-database AI, stream processing, and container orchestration",
       "skills": [
-        { "name": "Snowflake Cortex AI & Dynamic Tables", "level": "Expert", "relatedProjects": ["snowflake-cortex-marketing-agent"] },
-        { "name": "AWS (Bedrock, SageMaker, S3, EC2)", "level": "Expert", "relatedProjects": ["pnc-credit-risk-agentic-platform"] },
-        { "name": "GCP (Vertex AI, BigQuery ML, Looker/LookML)", "level": "Proficient", "relatedProjects": [] },
-        { "name": "Apache Kafka & Event Streams", "level": "Expert", "relatedProjects": ["amex-hybrid-search-engine"] },
-        { "name": "Docker & Kubernetes (K8s Microservices)", "level": "Expert", "relatedProjects": ["amex-hybrid-search-engine", "pnc-credit-risk-agentic-platform"] },
-        { "name": "FastAPI & RESTful APIs", "level": "Expert", "relatedProjects": ["pnc-credit-risk-agentic-platform", "agentic-doc-qa-mcp"] },
-        { "name": "MLflow Tracking & Registry", "level": "Expert", "relatedProjects": ["pnc-credit-risk-agentic-platform"] },
-        { "name": "CI/CD (Jenkins, GitHub Actions)", "level": "Proficient", "relatedProjects": [] }
-      ]
-    },
-    {
-      "name": "Databases, Frontend & Analytics Tools",
-      "description": "Relational/vector databases, web applications, and executive visualization",
-      "skills": [
-        { "name": "PostgreSQL, MySQL & Oracle", "level": "Expert", "relatedProjects": ["pnc-credit-risk-agentic-platform"] },
-        { "name": "Vector Databases (Pinecone, ChromaDB)", "level": "Expert", "relatedProjects": ["agentic-doc-qa-mcp"] },
-        { "name": "Redis Caching & Key-Value Stores", "level": "Expert", "relatedProjects": ["amex-hybrid-search-engine"] },
-        { "name": "MongoDB & Graph Databases", "level": "Proficient", "relatedProjects": [] },
-        { "name": "ReactJS & TypeScript", "level": "Expert", "relatedProjects": ["pnc-credit-risk-agentic-platform", "amex-hybrid-search-engine"] },
-        { "name": "Tableau, Power BI & Streamlit", "level": "Expert", "relatedProjects": ["amex-hybrid-search-engine", "snowflake-cortex-marketing-agent"] },
-        { "name": "OWASP Top 10 Application Security", "level": "Proficient", "relatedProjects": ["pnc-credit-risk-agentic-platform"] }
+        { "name": "Snowflake Cortex AI & Dynamic Tables", "level": "Expert", "value": 95 },
+        { "name": "AWS (Bedrock, SageMaker, S3, EC2)", "level": "Expert", "value": 92 },
+        { "name": "Apache Kafka & Event Streams", "level": "Expert", "value": 90 },
+        { "name": "Docker & Kubernetes (K8s Microservices)", "level": "Expert", "value": 91 },
+        { "name": "FastAPI & RESTful APIs", "level": "Expert", "value": 96 }
       ]
     }
   ],
