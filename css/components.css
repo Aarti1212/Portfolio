@@ -1302,7 +1302,8 @@
 .es-track {
   position: relative;
   height: 30px;
-  cursor: default;
+  cursor: pointer;
+  touch-action: none;
   user-select: none;
   outline: none;
 }
@@ -1333,10 +1334,15 @@
   border: 4px solid var(--accent);
   border-radius: 50%;
   background: var(--es-thumb-bg);
-  transition: left 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: left 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.15s;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  pointer-events: none;
 }
+
+.es-track:not(.es-track--locked):hover .es-thumb { transform: scale(1.1); }
+.es-track--drag .es-thumb { transform: scale(1.18); }
+.es-track--drag .es-fill,
+.es-track--drag .es-thumb { transition: none; }
+.es-track:focus-visible .es-thumb { box-shadow: 0 0 0 3px var(--track), 0 0 0 5px var(--accent); }
 
 .es-label {
   padding: 4px 0;
