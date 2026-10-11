@@ -96,8 +96,8 @@ Each object in the array represents a project card and its full-screen interacti
 - `config`:
   - `showBlogSection`: `true | false`
   - `showHobbiesSection`: `true | false`
-  - `showAssistantTeaser`: `true | false`
-  - `contactFormEndpoint`: `"https://formspree.io/f/your_form_id_here"`
+  - `contactFormEndpoint`: `"https://formsubmit.co/ajax/aartibarve11@gmail.com"` (or any Formspree/FormSubmit URL)
+  - `contactEmail`: `"aartibarve11@gmail.com"`
 
 ---
 

@@ -49,6 +49,7 @@
     "showWritingSection": true,
     "showHobbiesSection": true,
     "showAssistantTeaser": true,
-    "contactFormEndpoint": "https://formspree.io/f/your_form_id_here"
+    "contactFormEndpoint": "https://formsubmit.co/ajax/aartibarve11@gmail.com",
+    "contactEmail": "aartibarve11@gmail.com"
   }
 }
