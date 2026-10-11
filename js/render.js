@@ -232,39 +232,6 @@ export function renderSkills(skillsData) {
     // Trigger smooth entrance animation when scrolled into view
     animateSkillsBars(sliderContainer);
   }
-
-  // Concept Explainers
-  const conceptsContainer = document.getElementById('conceptsGrid');
-  if (conceptsContainer && skillsData.concepts) {
-    conceptsContainer.innerHTML = skillsData.concepts.map(c => `
-      <div class="concept-card reveal-on-scroll" tabindex="0" role="button" aria-expanded="false">
-        <div class="concept-header">
-          <h4 class="concept-title">${escapeHtml(c.title)}</h4>
-          <svg class="concept-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </div>
-        <span class="concept-badge">${escapeHtml(c.tag)}</span>
-        <p class="concept-summary">${escapeHtml(c.summary)}</p>
-        <div class="concept-deepdive">
-          ${escapeHtml(c.deepDive)}
-        </div>
-      </div>
-    `).join('');
-
-    // Add click listeners to concept cards
-    conceptsContainer.querySelectorAll('.concept-card').forEach(card => {
-      const toggle = () => {
-        const isExpanded = card.classList.toggle('expanded');
-        card.setAttribute('aria-expanded', isExpanded);
-      };
-      card.addEventListener('click', toggle);
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggle();
-        }
-      });
-    });
-  }
 }
 
 // Smooth entrance animation for visual proficiency bars (non-scrollable / locked)

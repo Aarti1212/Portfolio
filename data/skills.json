@@ -36,49 +36,5 @@
         { "name": "FastAPI & RESTful APIs", "level": "Expert", "value": 96 }
       ]
     }
-  ],
-  "concepts": [
-    {
-      "id": "concept-mcp",
-      "title": "Model Context Protocol (MCP) & Multi-Agent Communication",
-      "tag": "Agent Architecture",
-      "summary": "Standardizing how LLM agents securely discover tools, query knowledge bases, and coordinate state transitions across distributed environments.",
-      "deepDive": "Model Context Protocol (MCP) replaces fragile ad-hoc API wrappers with an open, standardized protocol for connecting AI models to external data sources and execution environments. In a multi-agent system, MCP enables specialized agents (e.g., Planner, Retriever, and Synthesizer) to discover server tools, inspect structured schemas, and exchange typed JSON-RPC messages with clear authorization boundaries, preventing tool-calling ambiguity."
-    },
-    {
-      "id": "concept-langgraph",
-      "title": "Stateful Agent Orchestration with LangGraph & Checkpointing",
-      "tag": "Agentic Workflows",
-      "summary": "Building cyclic, fault-tolerant state machine workflows with memory persistence, SQLite checkpointing, and human-in-the-loop validation.",
-      "deepDive": "Traditional linear DAG chains fail when complex workflows require iterative refinement, dynamic branching, or error recovery. LangGraph models agent workflows as stateful graphs where each node receives and updates a shared typed state dictionary. With persistent checkpointing (e.g. SQLiteSaver), long-running workflows can be paused for compliance/human approval and resumed seamlessly across service restarts without losing conversational memory."
-    },
-    {
-      "id": "concept-realtime-voice",
-      "title": "Real-Time Streaming Voice AI with LiveKit & VAD",
-      "tag": "Voice AI Systems",
-      "summary": "Achieving sub-400ms conversational turn latency using WebRTC transport, dynamic Voice Activity Detection (VAD), and token streaming into websocket TTS.",
-      "deepDive": "Conversational speech requires sub-400ms latency to feel natural. Standard request-response cycles add latency at every stage. We overcome this by streaming user audio over WebRTC to a high-speed STT engine (Deepgram), feeding streaming tokens into an LLM, and buffering clauses across sentence boundaries to begin TTS audio playback (ElevenLabs) while the rest of the response is still generating. Instant interruption handling ('barge-in') cancels in-flight generation when user speech is detected."
-    },
-    {
-      "id": "concept-hybrid-search",
-      "title": "Enterprise Hybrid Search: Dense Vectors, BM25 & NER",
-      "tag": "Search & Retrieval",
-      "summary": "Combining dense semantic embeddings with sparse keyword matching and high-precision Named Entity Recognition for financial query understanding.",
-      "deepDive": "In enterprise applications like American Express, queries frequently contain specific named entities (merchants, transaction amounts, dates) alongside conceptual intent. Pure vector search often overlooks exact numerical criteria, while keyword search fails on synonyms. Hybrid search executes dense vector retrieval and sparse BM25 concurrently, applies custom NER (spaCy/regex) to isolate hard filters, and fuses the result candidates using Reciprocal Rank Fusion (RRF) for optimal relevance."
-    },
-    {
-      "id": "concept-snowflake-cortex",
-      "title": "In-Database Generative AI with Snowflake Cortex AI",
-      "tag": "Enterprise Data Cloud",
-      "summary": "Executing LLM inference, sentiment scoring, and semantic text-to-SQL directly inside Snowflake with Dynamic Tables and dynamic data masking.",
-      "deepDive": "Moving enterprise data to external LLM APIs introduces latency, cost, and compliance risks. Snowflake Cortex AI brings LLM inference directly to where the data lives. By utilizing Cortex Search for unstructured text and Cortex Analyst for semantic Text-to-SQL, combined with Dynamic Tables for automated incremental transformation, teams can provide secure, real-time natural language query capabilities while adhering to enterprise RBAC and column-level masking policies."
-    },
-    {
-      "id": "concept-llm-eval",
-      "title": "LLM Evaluation, Governance & MLflow Monitoring in Banking",
-      "tag": "MLOps & Governance",
-      "summary": "Implementing automated evaluation harnesses (BERTScore, custom rubrics, groundedness detectors) with MLflow tracking for compliance and drift alerts.",
-      "deepDive": "Deploying Generative AI in regulated financial environments (e.g., credit risk decisioning) requires deterministic auditability. We implement multi-layered evaluation frameworks combining deterministic schema validation with semantic metrics (BERTScore, Ragas groundedness, and custom rubric judges). Evaluation metrics are continuously logged into MLflow, triggering automated alerts if output hallucination rates or model drift exceed predefined compliance thresholds."
-    }
   ]
 }

@@ -68,7 +68,7 @@ Each object in the array represents a project card and its full-screen interacti
 
 ---
 
-## 3. `data/skills.json` — Core Technical Expertise (Interactive Slider Visual) & Concepts
+## 3. `data/skills.json` — Core Technical Expertise
 
 ```json
 {
@@ -80,15 +80,6 @@ Each object in the array represents a project card and its full-screen interacti
       "skills": [
         { "name": "LangChain & LangGraph", "level": "Expert", "value": 96 }
       ]
-    }
-  ],
-  "concepts": [
-    {
-      "id": "concept-slug",
-      "title": "Concept Title",
-      "tag": "Architecture Domain",
-      "summary": "1-sentence executive summary.",
-      "deepDive": "Comprehensive paragraph explaining internal mechanics, trade-offs, and design patterns."
     }
   ]
 }
@@ -106,7 +97,6 @@ Each object in the array represents a project card and its full-screen interacti
   - `showBlogSection`: `true | false`
   - `showHobbiesSection`: `true | false`
   - `showAssistantTeaser`: `true | false`
-  - `showConceptsSection`: `true | false`
   - `contactFormEndpoint`: `"https://formspree.io/f/your_form_id_here"`
 
 ---
