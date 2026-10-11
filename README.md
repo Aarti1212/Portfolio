@@ -1,4 +1,4 @@
-# ⚡ Aarti Barve — AI / Machine Learning & GenAI Portfolio
+#  Aarti Barve — AI / Machine Learning & GenAI Portfolio
 
 A fast, high-performance, fully static portfolio website designed for AI/ML and Generative AI Engineers. Deploys seamlessly to **GitHub Pages** with zero build steps or backend servers.
 
@@ -6,7 +6,7 @@ A fast, high-performance, fully static portfolio website designed for AI/ML and 
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 - **Pure Static Architecture**: Written in semantic HTML5, modern CSS3 (custom properties, responsive grid/flexbox, glassmorphic dark/light themes), and modular Vanilla JavaScript (ES modules).
 - **100% Data-Driven**: All content is separated into clean JSON files (`/data/*.json`). Updating your portfolio, adding projects, or editing experience is as simple as modifying a JSON file.
@@ -18,7 +18,7 @@ A fast, high-performance, fully static portfolio website designed for AI/ML and 
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 /
@@ -67,7 +67,7 @@ A fast, high-performance, fully static portfolio website designed for AI/ML and 
 
 ---
 
-## 🚀 Quick Start: Preview Locally
+## Quick Start: Preview Locally
 
 Since the site uses modern ES modules (`type="module"`), it should be served via a local HTTP server:
 
@@ -85,7 +85,7 @@ npx serve .
 
 ---
 
-## 🚢 Deploying to GitHub Pages in 2 Minutes
+##  Deploying to GitHub Pages in 2 Minutes
 
 1. **Create a GitHub Repository**:
    - Create a new public repository on GitHub (e.g. `Portfolio` or `<your-username>.github.io`).
@@ -111,7 +111,7 @@ npx serve .
 
 ---
 
-## ✏️ Personalization & Content Checklist
+##  Personalization & Content Checklist
 
 - [ ] **Resume PDF**: Replace `assets/resume.pdf` with your full, finalized PDF resume.
 - [ ] **Profile Photo**: If you prefer a real photo over the stylized avatar, place `photo.jpg` in `assets/images/` and update `avatar` in `data/profile.json`.
